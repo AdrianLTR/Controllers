@@ -1,0 +1,159 @@
+/* ========== HERO SECTION STYLES ========== */
+.hero-section {
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.15) 0%, 
+        rgba(96, 165, 250, 0.12) 25%,
+        rgba(147, 197, 253, 0.08) 50%,
+        rgba(96, 165, 250, 0.12) 75%,
+        rgba(59, 130, 246, 0.15) 100%);
+    backdrop-filter: blur(20px);
+    min-height: 100vh;
+}
+
+.hero-content {
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+/* Animación suave para el logo principal */
+.hero-logo {
+    animation: float 8s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(0.5deg); }
+    50% { transform: translateY(-10px) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(-0.5deg); }
+}
+
+/* Mejoras responsive para el hero */
+@media (max-width: 1024px) {
+    .hero-logo {
+        animation: none;
+    }
+}
+
+/* ========== LOGO STYLES ========== */
+.logo-enhanced {
+    transition: all 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.logo-enhanced:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+/* Improve logo rendering on different screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-enhanced {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+    }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes zoom-in {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* ========== UTILITY CLASSES ========== */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(20px);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-bg-zoom {
+    animation: zoom-in 10s ease-out forwards;
+}
+
+/* ========== SCROLL TO TOP BUTTON ========== */
+#scroll-to-top {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* ========== RESPONSIVE DESIGN ENHANCEMENTS ========== */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-bg-zoom {
+        animation: none; /* Disable zoom on mobile for performance */
+    }
+}
+
+/* ========== FORM ENHANCEMENTS ========== */
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== HOVER EFFECTS ========== */
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== ACCESSIBILITY IMPROVEMENTS ========== */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .hero-bg-zoom,
+    .fade-in,
+    .hero-logo {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .sticky,
+    #scroll-to-top,
+    button {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}

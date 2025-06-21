@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controllers RD - Soluciones de Personal Temporal</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cinzel & Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+      <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Tailwind Configuration -->
+    <script src="js/tailwind-config.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white font-sans text-brand-gray-dark">    <!-- Header Navigation -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-center items-center relative">
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-brand-gray-DEFAULT hover:text-brand-blue-dark transition duration-300 font-medium">Inicio</a>
+                    <a href="#sobre-nosotros" class="text-brand-gray-DEFAULT hover:text-brand-blue-dark transition duration-300 font-medium">Sobre Nosotros</a>
+                    <a href="#servicios" class="text-brand-gray-DEFAULT hover:text-brand-blue-dark transition duration-300 font-medium">Servicios</a>
+                    <a href="#contacto" class="bg-brand-blue-dark text-white hover:bg-black transition-all duration-300 font-medium py-2 px-4 rounded-lg shadow-sm hover:shadow-md">Contacto</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden absolute right-0">
+                    <button id="mobile-menu-button" class="text-black focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+          <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="text-center">
+                <a href="#inicio" class="block py-3 px-6 text-sm text-black hover:bg-brand-gray-light">Inicio</a>
+                <a href="#sobre-nosotros" class="block py-3 px-6 text-sm text-black hover:bg-brand-gray-light">Sobre Nosotros</a>
+                <a href="#servicios" class="block py-3 px-6 text-sm text-black hover:bg-brand-gray-light">Servicios</a>
+                <a href="#contacto" class="block py-3 px-6 text-sm text-black hover:bg-brand-gray-light">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>        <!-- Hero Section -->
+        <section id="inicio" class="hero-section relative min-h-screen flex flex-col justify-center overflow-hidden">
+            <!-- Contenido principal -->
+            <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
+                <!-- Main Content Area -->
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
+                    <!-- Left Side - Bienvenido and Button -->
+                    <div class="text-left space-y-8 flex-1">
+                        <h2 class="text-6xl md:text-7xl lg:text-8xl font-extralight text-gray-800 tracking-wide leading-tight">
+                            Bienvenido
+                        </h2>
+                        
+                        <div class="pt-6">
+                            <a href="#contacto" class="inline-block border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white font-light py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 text-base tracking-wide uppercase">
+                                Ponte en contacto
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Logo -->
+                    <div class="flex-shrink-0 flex-1 flex justify-center lg:justify-end">
+                        <img src="images/Logo.png" 
+                             alt="Controllers Logo" 
+                             class="hero-logo w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] object-contain filter brightness-110 contrast-105 drop-shadow-lg transform hover:scale-105 transition-transform duration-500"
+                             loading="eager"
+                             decoding="async">
+                    </div>
+                </div>
+            </div>
+        </section><!-- About Us Section -->
+        <section id="sobre-nosotros" class="py-24 bg-white">
+            <div class="container mx-auto px-6">                <div class="flex flex-col md:flex-row items-center gap-16 animate-on-scroll">
+                    <div class="md:w-1/2">
+                        <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" alt="Equipo de trabajo colaborando" class="rounded-xl shadow-2xl w-full transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="font-heading text-4xl md:text-5xl font-semibold text-black mb-6" style="letter-spacing: 0.2em;">Sobre nosotros</h2>
+                        <p class="text-brand-gray-DEFAULT leading-relaxed mb-4 text-lg">
+                            <strong class="font-semibold text-black">Controllers es una empresa especializada en el suministro de personal temporal (temporal labor) y en la contratación de perfiles operativos, administrativos y comerciales.</strong>
+                        </p>
+                        <p class="text-brand-gray-DEFAULT leading-relaxed mb-4 text-lg">
+                            Con más de una década de trayectoria, nos hemos posicionado como un socio estratégico para organizaciones nacionales e internacionales, gracias a nuestra capacidad de respuesta, profesionalismo y cumplimiento normativo.
+                        </p>
+                        <p class="text-brand-gray-DEFAULT leading-relaxed text-lg">
+                            <strong class="font-semibold text-black">Entendemos que en entornos dinámicos, contar con el equipo correcto marca la diferencia. Por eso, no solo suplimos personal: aseguramos continuidad, desempeño y tranquilidad para tu empresa.</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Mission, Vision, Values -->
+                <div class="mt-24 grid md:grid-cols-3 gap-12 animate-on-scroll">
+                    <!-- Mission -->
+                    <div class="text-center">
+                        <div class="bg-brand-blue-dark text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-bullseye text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-semibold text-black mb-4">Misión</h3>
+                        <p class="text-brand-gray-DEFAULT leading-relaxed">
+                            Contribuir al crecimiento sostenible de nuestros clientes mediante la gestión eficiente del talento humano, suministrando personal calificado con altos estándares de desempeño, cumplimiento legal y ética profesional.
+                        </p>
+                    </div>
+                    
+                    <!-- Vision -->
+                    <div class="text-center">
+                        <div class="bg-brand-blue-dark text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-eye text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-semibold text-black mb-4">Visión</h3>
+                        <p class="text-brand-gray-DEFAULT leading-relaxed">
+                            Ser reconocidos como la empresa líder en soluciones de temporal labor y contratación especializada en la región, brindando siempre un servicio ágil, ético y centrado en la calidad humana.
+                        </p>
+                    </div>
+                    
+                    <!-- Values -->
+                    <div class="text-center">
+                        <div class="bg-brand-blue-dark text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-semibold text-black mb-4">Valores</h3>
+                        <div class="text-brand-gray-DEFAULT leading-relaxed text-left">
+                            <p class="mb-2"><strong class="text-black">Compromiso:</strong> Cumplimos lo que prometemos</p>
+                            <p class="mb-2"><strong class="text-black">Transparencia:</strong> Procesos claros y comunicación abierta</p>
+                            <p class="mb-2"><strong class="text-black">Agilidad:</strong> Respuesta en tiempos óptimos</p>
+                            <p class="mb-2"><strong class="text-black">Calidad:</strong> Altos estándares técnicos</p>
+                            <p><strong class="text-black">Confianza:</strong> Socio estratégico confiable</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+          <!-- Services Section -->
+        <section id="servicios" class="py-24 bg-brand-gray-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="font-heading text-4xl md:text-5xl font-semibold text-black mb-4" style="letter-spacing: 0.2em;">Servicios</h2>
+                    <p class="text-brand-gray-DEFAULT text-lg max-w-3xl mx-auto">
+                        Para Controllers cada empresa es única, por lo que diseñamos esquemas personalizados según sus retos, tipo de industria, ubicación y objetivos de productividad.
+                    </p>
+                </div>
+                  <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <!-- Soluciones a la Medida -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
+                        <div class="text-center mb-6"> 
+                            <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" alt="Trabajador profesional" class="w-full h-48  object-cover rounded-lg mb-4">
+                            <div class="bg-brand-blue-dark text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"> 
+                                <i class="fas fa-cogs text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-black">SOLUCIONES A LA MEDIDA</h3>
+                        </div>
+                        <ul class="text-brand-gray-DEFAULT space-y-3">
+                            <li class="flex items-start"><i class="fas fa-check text-brand-blue-dark mt-1 mr-3"></i>Contratación temporal operativa por turnos, proyectos o producción estacional</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-blue-dark mt-1 mr-3"></i>Suministro de personal administrativo de soporte y gestión interna</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-blue-dark mt-1 mr-3"></i>Fuerza de ventas, impulsadores, promotores y personal para campañas</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-blue-dark mt-1 mr-3"></i>Esquemas mixtos de personal rotativo y fijo</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-blue-dark mt-1 mr-3"></i>Cobertura para reemplazos por vacaciones, licencias o ausencias</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-blue-dark mt-1 mr-3"></i>Soluciones por metas, productividad o cumplimiento de indicadores</li>
+                        </ul>
+                    </div>
+                      <!-- Gestión de Personal -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
+                        <div class="text-center mb-6">
+                            <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Equipo de trabajo con seguridad" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <div class="bg-brand-blue-dark text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-black">GESTIÓN DE PERSONAL</h3>
+                            <p class="text-brand-gray-DEFAULT text-sm mt-2">Temporal Labor para Empresas de Clase Mundial</p>
+                        </div>
+                        <p class="text-brand-gray-DEFAULT mb-4">
+                            Nuestro modelo está diseñado para brindar soporte ágil, legal y estratégico a empresas que necesitan mantener altos niveles de productividad y control operativo.
+                        </p>
+                        <p class="text-brand-gray-DEFAULT font-medium">
+                            Nos convertimos en una extensión de tu equipo de Recursos Humanos, asumiendo todos los aspectos de la gestión del talento.
+                        </p>
+                    </div>
+                </div>
+                  <!-- Detailed Process -->
+                <div class="bg-white rounded-xl shadow-lg p-8 animate-on-scroll">
+                    <div class="text-center mb-8">
+                        <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesionales en trabajo" class="w-full h-64 object-cover rounded-lg mb-6">
+                        <h3 class="font-heading text-3xl font-semibold text-black">Lo que hacemos por ti</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Recruitment -->
+                        <div class="text-center">
+                            <div class="bg-blue-100 text-brand-blue-dark w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-search text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold text-black mb-3">Reclutamiento Especializado</h4>
+                            <ul class="text-brand-gray-DEFAULT text-sm space-y-1">
+                                <li>• Análisis del perfil</li>
+                                <li>• Publicación y filtrado</li>
+                                <li>• Evaluaciones psicométricas</li>
+                                <li>• Verificación de referencias</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Contracting -->
+                        <div class="text-center">
+                            <div class="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-file-contract text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold text-black mb-3">Contratación Formal</h4>
+                            <ul class="text-brand-gray-DEFAULT text-sm space-y-1">
+                                <li>• Contratos alineados a la ley</li>
+                                <li>• Seguridad social</li>
+                                <li>• Documentación completa</li>
+                                <li>• Cumplimiento normativo</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Training -->
+                        <div class="text-center">
+                            <div class="bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-graduation-cap text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold text-black mb-3">Inducción y Entrenamiento</h4>
+                            <ul class="text-brand-gray-DEFAULT text-sm space-y-1">
+                                <li>• Inducción organizacional</li>
+                                <li>• Entrenamientos técnicos</li>
+                                <li>• Capacitación en seguridad</li>
+                                <li>• Acompañamiento inicial</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Management -->
+                        <div class="text-center">
+                            <div class="bg-orange-100 text-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold text-black mb-3">Supervisión y Control</h4>
+                            <ul class="text-brand-gray-DEFAULT text-sm space-y-1">
+                                <li>• Seguimiento de desempeño</li>
+                                <li>• Reemplazos ágiles</li>
+                                <li>• Evaluaciones periódicas</li>
+                                <li>• Gestión administrativa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-24 bg-white">
+            <div class="container mx-auto px-6 animate-on-scroll">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-4xl md:text-5xl font-semibold text-black" style="letter-spacing: 0.1em;">Comunícate con nosotros</h2>
+                    <p class="text-brand-gray-DEFAULT mt-4">Especialistas en suministro de personal temporal. Nos encanta escuchar las necesidades de nuestros clientes y ofrecerles soluciones personalizadas de talento humano.</p>
+                </div>
+                <div class="bg-brand-gray-light p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                         <!-- Contact Information -->
+                         <div class="space-y-6">
+                             <h3 class="text-2xl font-semibold text-black">Información de Contacto</h3>
+                            <a href="https://wa.me/18495170202" target="_blank" class="flex items-center space-x-4 p-4 rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors duration-300">
+                                <i class="fab fa-whatsapp text-3xl"></i>
+                                <div>
+                                    <p class="font-semibold">Envíanos un mensaje</p>
+                                    <p class="text-sm">(849) 517-0202</p>
+                                </div>
+                            </a>
+                             <div class="flex items-center space-x-4">
+                                 <i class="fas fa-phone-alt text-2xl text-black"></i>
+                                 <a href="tel:8495170202" class="text-brand-gray-dark hover:text-black">849-517-0202</a>
+                            </div>
+                             <div class="flex items-center space-x-4">
+                                 <i class="fas fa-envelope text-2xl text-black"></i>
+                                 <a href="mailto:servicios@controllersrd.com" class="text-brand-gray-dark hover:text-black">servicios@controllersrd.com</a>
+                            </div>
+                         </div>
+                        <!-- Contact Form -->                        <div>
+                            <form id="contact-form" action="#" method="POST">
+                                <div class="space-y-4">
+                                    <input type="text" name="from_name" placeholder="Nombre" class="w-full p-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transition-shadow">
+                                    <input type="email" name="from_email" placeholder="Correo Electrónico *" required class="w-full p-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transition-shadow">
+                                    <textarea name="message" placeholder="Mensaje" rows="4" class="w-full p-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transition-shadow"></textarea>
+                                </div>
+                                <button type="submit" id="submit-btn" class="mt-6 w-full bg-brand-blue-dark hover:bg-black text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                    <span class="btn-text">Enviar</span>
+                                    <span class="btn-loading hidden">
+                                        <i class="fas fa-spinner fa-spin"></i> Enviando...
+                                    </span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="font-semibold text-lg mb-2">CONTROLLERS,SRL</p>
+            <p class="text-sm text-gray-400 mb-4">RNC 132-457609</p>
+            <p class="text-xs text-gray-500">Especialistas en Personal Temporal</p>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-5 right-5 bg-brand-blue-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-4 hover:bg-black">
+        <i class="fas fa-arrow-up"></i>
+    </button>    <!-- JavaScript -->
+    <script src="js/emailjs-config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
