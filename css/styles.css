@@ -1,95 +1,263 @@
-/* ========== HERO SECTION STYLES ========== */
+/*
+========================================
+    GENERAL STYLES
+========================================
+*/
+:root {
+    --clr-primary: #3b82f6; /* blue-500 */
+    --clr-gray-900: #111827;
+    --clr-gray-800: #1f2937;
+    --clr-gray-700: #374151;
+    --clr-gray-300: #d1d5db;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+========================================
+    HEADER & NAVIGATION
+========================================
+*/
+#header.scrolled {
+    background-color: rgba(17, 24, 39, 0.8); /* gray-900 with opacity */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nav-link {
+    position: relative;
+    color: var(--clr-gray-300);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--clr-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-mobile {
+    color: var(--clr-gray-300);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link-mobile:hover {
+    background-color: var(--clr-gray-700);
+    color: white;
+}
+
+/*
+========================================
+    HERO & PARTICLES
+========================================
+*/
 .hero-section {
-    background: linear-gradient(135deg, 
-        rgba(59, 130, 246, 0.15) 0%, 
-        rgba(96, 165, 250, 0.12) 25%,
-        rgba(147, 197, 253, 0.08) 50%,
-        rgba(96, 165, 250, 0.12) 75%,
-        rgba(59, 130, 246, 0.15) 100%);
-    backdrop-filter: blur(20px);
-    min-height: 100vh;
+    background-color: var(--clr-gray-900);
 }
 
-.hero-content {
-    backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*
+========================================
+    TYPOGRAPHY & SECTIONS
+========================================
+*/
+.section-title {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 2.5rem; /* 40px */
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem; /* 18px */
+    color: var(--clr-gray-300);
+    margin-bottom: 3rem;
+}
+
+/*
+========================================
+    SERVICE CARDS
+========================================
+*/
+.service-card {
+    background-color: var(--clr-gray-800);
     padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--clr-gray-700);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-/* Animación suave para el logo principal */
-.hero-logo {
-    animation: float 8s ease-in-out infinite;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-5px) rotate(0.5deg); }
-    50% { transform: translateY(-10px) rotate(0deg); }
-    75% { transform: translateY(-5px) rotate(-0.5deg); }
+.card-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.75rem;
 }
 
-/* Mejoras responsive para el hero */
-@media (max-width: 1024px) {
-    .hero-logo {
-        animation: none;
+.card-title {
+    font-family: var(--font-primary);
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    color: var(--clr-gray-300);
+    line-height: 1.6;
+}
+
+/*
+========================================
+    PROCESS TIMELINE
+========================================
+*/
+.process-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.process-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--clr-gray-700);
+    color: var(--clr-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.process-content {
+    margin-left: 1.5rem;
+}
+
+.process-title {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .process-item {
+        width: 50%;
+        padding-right: 50px;
+    }
+    .process-item.md\:ml-auto {
+        margin-left: auto;
+        padding-left: 50px;
+        padding-right: 0;
+    }
+    .process-item.md\:text-right .process-content {
+        margin-left: 0;
+        margin-right: 1.5rem;
+        text-align: right;
+    }
+    .process-item.md\:ml-auto .process-icon {
+        order: 1;
     }
 }
 
-/* ========== LOGO STYLES ========== */
-.logo-enhanced {
-    transition: all 0.3s ease;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+/*
+========================================
+    CONTACT FORM
+========================================
+*/
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--clr-gray-300);
+    transition: color 0.3s ease;
 }
 
-.logo-enhanced:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1) contrast(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+.contact-link:hover {
+    color: var(--clr-primary);
 }
 
-/* Improve logo rendering on different screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .logo-enhanced {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: optimize-contrast;
-    }
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--clr-gray-900);
+    border: 1px solid var(--clr-gray-700);
+    border-radius: 0.5rem;
+    color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ========== ANIMATIONS ========== */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.form-input:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-@keyframes fadeInUp {
-    from { 
-        opacity: 0; 
-        transform: translateY(20px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
+/*
+========================================
+    ANIMATIONS
+========================================
+*/
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes zoom-in {
-    from { transform: scale(1); }
-    to { transform: scale(1.05); }
-}
-
-/* ========== UTILITY CLASSES ========== */
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
 }
 
 .animate-on-scroll {
     opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    transform: translateY(20px);
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .animate-on-scroll.is-visible {
@@ -97,63 +265,23 @@
     transform: translateY(0);
 }
 
-.hero-bg-zoom {
-    animation: zoom-in 10s ease-out forwards;
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+
+/* Custom Styles - You can add your own styles here if needed */
+
+.font-cinzel {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
 }
 
-/* ========== SCROLL TO TOP BUTTON ========== */
-#scroll-to-top {
-    transition: opacity 0.3s, transform 0.3s;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
 }
 
-/* ========== RESPONSIVE DESIGN ENHANCEMENTS ========== */
-@media (max-width: 768px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    .hero-bg-zoom {
-        animation: none; /* Disable zoom on mobile for performance */
-    }
-}
-
-/* ========== FORM ENHANCEMENTS ========== */
-input:focus, textarea:focus {
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-}
-
-/* ========== HOVER EFFECTS ========== */
-.service-card {
-    transition: all 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* ========== ACCESSIBILITY IMPROVEMENTS ========== */
-@media (prefers-reduced-motion: reduce) {
-    .animate-on-scroll,
-    .hero-bg-zoom,
-    .fade-in,
-    .hero-logo {
-        animation: none;
-        transition: none;
-    }
-}
-
-/* ========== PRINT STYLES ========== */
-@media print {
-    .sticky,
-    #scroll-to-top,
-    button {
-        display: none !important;
-    }
-    
-    body {
-        background: white !important;
-        color: black !important;
-    }
+.btn-loading {
+    display: none;
 }
