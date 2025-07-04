@@ -10,7 +10,7 @@
     <!-- Google Fonts: Poppins, Inter & Cinzel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -25,39 +25,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'cinzel': ['"Cinzel"', 'serif'],
-                        'poppins': ['"Poppins"', 'sans-serif'],
-                        'inter': ['"Inter"', 'sans-serif']
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out',
-                        'fade-in-down': 'fadeInDown 0.8s ease-out',
-                        'slide-in-left': 'slideInLeft 0.8s ease-out',
-                        'slide-in-right': 'slideInRight 0.8s ease-out',
-                        'pulse-slow': 'pulse 3s ease-in-out infinite',
-                        'float': 'float 6s ease-in-out infinite'
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        fadeInDown: {
-                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        slideInLeft: {
-                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' }
-                        },
-                        slideInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(50px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        }
+                        'cinzel': ['"Cinzel"', 'serif']
                     }
                 }
             }
@@ -74,149 +42,30 @@
             -ms-hyphens: auto;
             word-spacing: -0.05em;
         }
-        
-        /* Video background styles */
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-            z-index: 1;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(230,240,255,0.8) 100%);
-            z-index: 2;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 3;
-        }
-        
-        /* Enhanced card hover effects */
-        .service-card-enhanced {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .service-card-enhanced:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Improved button styles */
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        /* Enhanced navigation */
-        .nav-link-enhanced {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link-enhanced::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        .nav-link-enhanced:hover::after {
-            width: 100%;
-        }
-        
-        /* Parallax effect for sections */
-        .parallax-section {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Loading animation for video */
-        .video-loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-        
-        /* Improved timeline design */
-        .timeline-connector {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
-            transform: translateX(-50%);
-        }
-        
-        @media (max-width: 768px) {
-            .timeline-connector {
-                left: 25px;
-            }
-        }
     </style>
 </head>
-<body class="bg-white font-inter text-gray-700">
+<body class="bg-white font-sans text-gray-700">
 
     <!-- Header Navigation -->
-    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 w-full z-50 transition-all duration-300" id="header">
-        <div class="container mx-auto px-6 py-4">
+    <header class="bg-white shadow-md sticky top-0 w-full z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-users text-white text-lg"></i>
-                    </div>
-                    <span class="font-cinzel font-bold text-xl text-gray-800">Controllers RD</span>
+                <div class="flex items-center">
+                    <img src="images/Logo.png" alt="Controllers RD Logo" class="h-12 w-auto">
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio" class="nav-link-enhanced text-gray-600 hover:text-blue-600 font-medium transition-colors">Inicio</a>
-                    <a href="#sobre-nosotros" class="nav-link-enhanced text-gray-600 hover:text-blue-600 font-medium transition-colors">Sobre Nosotros</a>
-                    <a href="#servicios" class="nav-link-enhanced text-gray-600 hover:text-blue-600 font-medium transition-colors">Servicios</a>
-                    <a href="#contacto" class="btn-primary text-white hover:shadow-lg transition-all duration-300 font-medium py-3 px-6 rounded-full">Contacto</a>
+                    <a href="#inicio" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Inicio</a>
+                    <a href="#sobre-nosotros" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Sobre Nosotros</a>
+                    <a href="#servicios" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Servicios</a>
+                    <a href="#contacto" class="bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 font-medium py-2 px-5 rounded-full shadow-lg hover:shadow-blue-700/50 btn-primary">Contacto</a>
                 </nav>
                 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none" aria-label="Abrir menú de navegación">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -224,19 +73,19 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-lg border-t">
-            <div class="text-center flex flex-col space-y-2 p-6">
-                <a href="#inicio" class="block py-3 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">Inicio</a>
-                <a href="#sobre-nosotros" class="block py-3 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">Sobre Nosotros</a>
-                <a href="#servicios" class="block py-3 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">Servicios</a>
-                <a href="#contacto" class="block py-3 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">Contacto</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-lg">
+            <div class="text-center flex flex-col space-y-4 p-5">
+                <a href="#inicio" class="block py-2 text-gray-600 hover:text-blue-600">Inicio</a>
+                <a href="#sobre-nosotros" class="block py-2 text-gray-600 hover:text-blue-600">Sobre Nosotros</a>
+                <a href="#servicios" class="block py-2 text-gray-600 hover:text-blue-600">Servicios</a>
+                <a href="#contacto" class="block py-2 text-gray-600 hover:text-blue-600">Contacto</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section with Video Background -->
-        <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+        <section id="inicio" class="relative min-h-[80vh] flex items-center overflow-hidden hero-section">
             <!-- Video Background -->
             <video 
                 class="video-background" 
@@ -244,190 +93,103 @@
                 muted 
                 loop 
                 playsinline
-                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23f8fafc'/%3E%3C/svg%3E"
-            >
+                poster="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg">
                 <source src="https://videos.pexels.com/video-files/3196036/3196036-uhd_2560_1440_25fps.mp4" type="video/mp4">
                 <source src="https://videos.pexels.com/video-files/6774/6774-hd_1920_1080_25fps.mp4" type="video/mp4">
-                <!-- Fallback for browsers that don't support video -->
-                Su navegador no soporta videos HTML5.
+                <!-- Fallback image if video fails -->
+                <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personas trabajando con equipos de seguridad" class="w-full h-full object-cover">
             </video>
             
             <!-- Video Loading Indicator -->
-            <div class="video-loading" id="video-loading">
-                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            <div id="video-loading" class="video-loading">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
             </div>
             
             <!-- Overlay -->
             <div class="hero-overlay"></div>
             
             <!-- Content -->
-            <div class="hero-content container mx-auto px-6 py-20">
-                <div class="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
-                    <div class="text-left mb-16 lg:mb-0 lg:w-1/2 animate-fade-in-up">
-                        <div class="mb-6">
-                            <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4 animate-pulse-slow">
-                                <i class="fas fa-star mr-2"></i>Más de una década de experiencia
-                            </span>
-                        </div>
-                        <h1 class="text-5xl md:text-7xl text-gray-800 mb-6 font-cinzel font-bold leading-tight">
-                            Bienvenido a 
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Controllers</span>
-                        </h1>
-                        <p class="text-xl text-gray-600 mb-8 max-w-lg leading-relaxed">
-                            Tu socio estratégico en <strong>personal temporal</strong> y soluciones de talento humano para empresas de clase mundial.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#contacto" class="btn-primary inline-flex items-center justify-center px-8 py-4 text-white hover:shadow-xl transition-all duration-300 rounded-full text-lg font-semibold group">
-                                <i class="fas fa-phone mr-3 group-hover:animate-pulse"></i>
-                                Ponte en contacto
-                            </a>
-                            <a href="#servicios" class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 rounded-full text-lg font-semibold group">
-                                <i class="fas fa-arrow-down mr-3 group-hover:animate-bounce"></i>
-                                Ver servicios
-                            </a>
+            <div class="hero-content relative z-10 container mx-auto px-6 py-20">
+                <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
+                    <div class="text-left mb-16 md:mb-0 md:w-1/2 animate-fade-in-up">
+                        <h1 class="text-6xl md:text-7xl text-gray-800 mb-8 font-cinzel font-normal">Bienvenido</h1>
+                        <p class="text-xl text-gray-700 mb-8 max-w-lg">Tu socio estratégico en soluciones de personal temporal y contratación especializada.</p>
+                        <a href="#contacto" class="inline-block px-12 py-4 border border-gray-600 text-gray-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 rounded-full text-xl font-cinzel tracking-wider uppercase btn-primary">
+                            Ponte en contacto
+                        </a>
+                    </div>
+                    <div class="flex justify-center md:justify-end md:w-1/2 animate-fade-in-up animation-delay-300">
+                        <div class="text-center">
+                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-80 md:h-96 object-contain animate-float">
                         </div>
                     </div>
-                    <div class="flex justify-center lg:justify-end lg:w-1/2 animate-slide-in-right">
-                        <div class="text-center animate-float">
-                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-80 md:h-96 object-contain drop-shadow-2xl">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-                    <div class="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
                 </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="sobre-nosotros" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <section id="sobre-nosotros" class="py-24 bg-white">
             <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="animate-on-scroll">
-                        <div class="mb-6">
-                            <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
-                                <i class="fas fa-building mr-2"></i>Sobre nosotros
-                            </span>
-                        </div>
-                        <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-gray-900 mb-6">
-                            Somos <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Controllers</span>
-                        </h2>
-                        <p class="text-xl text-blue-600 mb-8 font-semibold">Tu socio estratégico en talento humano.</p>
-                        
-                        <div class="space-y-6 text-gray-600">
-                            <p class="text-justify leading-relaxed">
-                                Controllers es una empresa especializada en el suministro de <strong class="text-blue-600">personal temporal (temporal labor)</strong> y en la contratación de perfiles operativos, administrativos y comerciales. Nos enfocamos en brindar soluciones flexibles y personalizadas a empresas que necesitan talento humano confiable, evaluado y alineado con sus objetivos.
-                            </p>
-                            <p class="text-justify leading-relaxed">
-                                Con más de una década de trayectoria, hemos logrado posicionarnos como un socio estratégico para organizaciones nacionales e internacionales, gracias a nuestra capacidad de respuesta, profesionalismo y cumplimiento normativo.
-                            </p>
-                            <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                                <p class="font-semibold text-blue-800 italic">
-                                    "Entendemos que en entornos dinámicos, contar con el equipo correcto marca la diferencia. Por eso, no solo suplimos personal: aseguramos continuidad, desempeño y tranquilidad para tu empresa."
-                                </p>
-                            </div>
-                        </div>
+                        <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900 mb-4">Somos <span class="text-blue-600 gradient-text">Controllers</span></h2>
+                        <p class="text-lg text-gray-600 mb-8">Tu socio estratégico en talento humano.</p>
+                        <p class="mb-4 text-gray-600 max-w-xl mx-auto text-justify">
+                            Controllers es una empresa especializada en el suministro de personal temporal (temporal labor) y en la contratación de perfiles operativos, administrativos y comerciales. Nos enfocamos en brindar soluciones flexibles y personalizadas a empresas que necesitan talento humano confiable, evaluado y alineado con sus objetivos.
+                        </p>
+                        <p class="mb-4 text-gray-600 max-w-xl mx-auto text-justify">
+                            Con más de una década de trayectoria, hemos logrado posicionarnos como un socio estratégico para organizaciones nacionales e internacionales, gracias a nuestra capacidad de respuesta, profesionalismo y cumplimiento normativo. Nuestro modelo de trabajo asegura que cada colaborador asignado esté debidamente capacitado, documentado y adaptado a las exigencias de la operación del cliente.
+                        </p>
+                        <p class="mb-4 font-semibold text-blue-600 max-w-xl mx-auto text-justify">
+                            Entendemos que en entornos dinámicos, contar con el equipo correcto marca la diferencia. Por eso, no solo suplimos personal: aseguramos continuidad, desempeño y tranquilidad para tu empresa.
+                        </p>
                     </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-on-scroll">
-                        <div class="space-y-6">
-                            <img src="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" 
-                                 alt="Entrevista de trabajo para selección de personal" 
-                                 class="service-card-enhanced rounded-2xl shadow-lg w-full h-64 object-cover">
-                            <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" 
-                                 alt="Profesional cualificado y pensativo" 
-                                 class="service-card-enhanced rounded-2xl shadow-lg w-full h-48 object-cover">
-                        </div>
-                        <div class="space-y-6 mt-8">
-                            <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" 
-                                 alt="Personal con equipo de seguridad industrial" 
-                                 class="service-card-enhanced rounded-2xl shadow-lg w-full h-48 object-cover">
-                            <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" 
-                                 alt="Trabajador industrial productivo" 
-                                 class="service-card-enhanced rounded-2xl shadow-lg w-full h-64 object-cover">
-                        </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center animate-on-scroll animation-delay-200">
+                        <img src="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced">
+                        <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0">
                     </div>
                 </div>
                 
-                <!-- Mission, Vision, and Values -->
-                <div class="mt-24 animate-on-scroll">
-                    <div class="text-center mb-16">
-                        <h3 class="text-3xl font-cinzel font-bold text-gray-900 mb-4">Nuestros Pilares</h3>
-                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Los valores y principios que guían nuestro trabajo diario</p>
+                <!-- Mission and Vision -->
+                <div class="mt-24 grid md:grid-cols-2 gap-8 text-center">
+                    <!-- Mission -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm service-card-enhanced animate-on-scroll">
+                        <div class="mb-4 inline-flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 text-3xl card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Misión</h3>
+                        <p class="text-gray-600 mx-auto max-w-xl text-justify px-4 card-text">Contribuir al crecimiento sostenible de nuestros clientes mediante la gestión eficiente del talento humano, suministrando personal calificado en las áreas operativas, administrativas y comerciales, con altos estándares de desempeño, cumplimiento legal y ética profesional.</p>
                     </div>
                     
-                    <div class="grid md:grid-cols-2 gap-8 mb-16">
-                        <!-- Mission -->
-                        <div class="service-card-enhanced bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100">
-                            <div class="mb-6 inline-flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white text-3xl">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <h4 class="text-2xl font-cinzel font-semibold text-gray-800 mb-4">Misión</h4>
-                            <p class="text-gray-600 leading-relaxed text-justify">
-                                Contribuir al crecimiento sostenible de nuestros clientes mediante la gestión eficiente del talento humano, suministrando personal calificado en las áreas operativas, administrativas y comerciales, con altos estándares de desempeño, cumplimiento legal y ética profesional.
-                            </p>
+                    <!-- Vision -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm service-card-enhanced animate-on-scroll animation-delay-200">
+                        <div class="mb-4 inline-flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 text-3xl card-icon">
+                            <i class="fas fa-eye"></i>
                         </div>
-                        
-                        <!-- Vision -->
-                        <div class="service-card-enhanced bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-lg border border-green-100">
-                            <div class="mb-6 inline-flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-green-600 to-green-800 text-white text-3xl">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <h4 class="text-2xl font-cinzel font-semibold text-gray-800 mb-4">Visión</h4>
-                            <p class="text-gray-600 leading-relaxed text-justify">
-                                Ser reconocidos como la empresa líder en soluciones de temporal labor y contratación especializada en la región, por nuestra capacidad de impulsar la eficiencia operativa de empresas de clase mundial, brindando siempre un servicio ágil, ético y centrado en la calidad humana.
-                            </p>
-                        </div>
+                        <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Visión</h3>
+                        <p class="text-gray-600 mx-auto max-w-xl text-justify px-4 card-text">Ser reconocidos como la empresa líder en soluciones de temporal labor y contratación especializada en la región, por nuestra capacidad de impulsar la eficiencia operativa de empresas de clase mundial, brindando siempre un servicio ágil, ético y centrado en la calidad humana.</p>
                     </div>
-                    
-                    <!-- Values -->
-                    <div class="service-card-enhanced bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 shadow-lg border border-purple-100">
-                        <div class="text-center mb-8">
-                            <div class="mb-6 inline-flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 text-white text-3xl">
+                </div>
+                
+                <!-- Values Section -->
+                <div class="mt-16">
+                    <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl p-8 shadow-sm service-card-enhanced animate-on-scroll">
+                        <div class="text-center mb-6">
+                            <div class="mb-4 inline-flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 text-purple-600 text-3xl card-icon">
                                 <i class="fas fa-heart"></i>
                             </div>
-                            <h4 class="text-2xl font-cinzel font-semibold text-gray-800">Nuestros Valores</h4>
+                            <h3 class="text-2xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Nuestros Valores</h3>
                         </div>
-                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="text-center">
-                                <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600 text-xl">
-                                    <i class="fas fa-handshake"></i>
-                                </div>
-                                <h5 class="font-cinzel font-semibold text-gray-800 mb-2">Compromiso</h5>
-                                <p class="text-gray-600 text-sm">Cumplimos lo que prometemos con desempeño garantizado</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-green-100 text-green-600 text-xl">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <h5 class="font-cinzel font-semibold text-gray-800 mb-2">Transparencia</h5>
-                                <p class="text-gray-600 text-sm">Procesos claros y comunicación abierta</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 text-yellow-600 text-xl">
-                                    <i class="fas fa-bolt"></i>
-                                </div>
-                                <h5 class="font-cinzel font-semibold text-gray-800 mb-2">Agilidad</h5>
-                                <p class="text-gray-600 text-sm">Respuesta en tiempos óptimos</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-red-100 text-red-600 text-xl">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <h5 class="font-cinzel font-semibold text-gray-800 mb-2">Calidad</h5>
-                                <p class="text-gray-600 text-sm">Altos estándares técnicos y actitudinales</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 text-xl">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <h5 class="font-cinzel font-semibold text-gray-800 mb-2">Confianza</h5>
-                                <p class="text-gray-600 text-sm">Socio estratégico confiable y sólido</p>
-                            </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <ul class="text-left space-y-4 text-gray-600 max-w-md">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-3 mt-1"></i><div class="text-justify"><strong class="font-cinzel">Compromiso:</strong> Cumplimos lo que prometemos. Garantizamos desempeño, asistencia y cumplimiento de cada colaborador bajo nuestra gestión.</div></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-3 mt-1"></i><div class="text-justify"><strong class="font-cinzel">Transparencia:</strong> Operamos con procesos claros y comunicación abierta con nuestros clientes y colaboradores.</div></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-3 mt-1"></i><div class="text-justify"><strong class="font-cinzel">Agilidad:</strong> Respondemos en tiempos óptimos, adaptándonos a la velocidad de las operaciones más exigentes.</div></li>
+                            </ul>
+                            <ul class="text-left space-y-4 text-gray-600 max-w-md">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-3 mt-1"></i><div class="text-justify"><strong class="font-cinzel">Calidad:</strong> Seleccionamos, entrenamos y supervisamos el personal con altos estándares técnicos y actitudinales.</div></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-3 mt-1"></i><div class="text-justify"><strong class="font-cinzel">Confianza:</strong> Somos un socio estratégico confiable, con estructura operativa y legal sólida, que protege tus intereses.</div></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -435,409 +197,212 @@
         </section>
 
         <!-- Services Section -->
-        <section id="servicios" class="py-24 bg-white">
+        <section id="servicios" class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 animate-on-scroll">
-                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
-                        <i class="fas fa-cogs mr-2"></i>Nuestros servicios
-                    </span>
-                    <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-gray-900 mb-6">Soluciones a tu Medida</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Para Controllers cada empresa es única, por lo que diseñamos esquemas personalizados según sus retos, tipo de industria, ubicación y objetivos de productividad.
-                    </p>
+                    <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900">Soluciones a tu Medida</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-xl mx-auto text-justify px-4">Para Controllers cada empresa es única, por lo que diseñamos esquemas personalizados según sus retos, tipo de industria, ubicación y objetivos de productividad.</p>
                 </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Card 1 -->
-                    <div class="service-card-enhanced bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100">
-                        <div class="relative overflow-hidden">
-                            <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" 
-                                 alt="Personal con equipo de seguridad industrial" 
-                                 class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-8">
-                            <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600 text-xl">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
-                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-4">Contratación Flexible</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Contratación temporal operativa por turnos, proyectos o producción estacional. Esquemas mixtos de personal rotativo y fijo.
-                            </p>
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll">
+                        <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personal con equipo de seguridad industrial" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Contratación Flexible</h3>
+                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Contratación temporal operativa por turnos, proyectos o producción estacional. Esquemas mixtos de personal rotativo y fijo.</p>
                         </div>
                     </div>
                     
                     <!-- Service Card 2 -->
-                    <div class="service-card-enhanced bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100">
-                        <div class="relative overflow-hidden">
-                            <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" 
-                                 alt="Persona en soporte administrativo trabajando desde casa" 
-                                 class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-8">
-                            <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-green-100 text-green-600 text-xl">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-4">Equipos Comerciales y de Soporte</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Suministro de personal administrativo, fuerza de ventas, impulsadores, promotores y personal para campañas de mercado.
-                            </p>
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-200">
+                        <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" alt="Persona en soporte administrativo trabajando desde casa" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Equipos Comerciales y de Soporte</h3>
+                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Suministro de personal administrativo, fuerza de ventas, impulsadores, promotores y personal para campañas de mercado.</p>
                         </div>
                     </div>
                     
                     <!-- Service Card 3 -->
-                    <div class="service-card-enhanced bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100">
-                        <div class="relative overflow-hidden">
-                            <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" 
-                                 alt="Trabajador industrial productivo" 
-                                 class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-8">
-                            <div class="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 text-xl">
-                                <i class="fas fa-target"></i>
-                            </div>
-                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-4">Cobertura y Productividad</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Cobertura para reemplazos por vacaciones, licencias o ausencias prolongadas. Soluciones por metas, productividad o cumplimiento de indicadores.
-                            </p>
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-400">
+                        <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" alt="Trabajador industrial productivo" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Cobertura y Productividad</h3>
+                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Cobertura para reemplazos por vacaciones, licencias o ausencias prolongadas. Soluciones por metas, productividad o cumplimiento de indicadores.</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-16 text-center animate-on-scroll">
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-                        <p class="text-xl text-gray-700 font-semibold max-w-4xl mx-auto leading-relaxed">
-                            <i class="fas fa-shield-check text-blue-600 mr-3"></i>
-                            Aseguramos la continuidad de tu operación sin desbordar tu estructura interna ni comprometer el cumplimiento legal.
-                        </p>
-                    </div>
+                <div class="mt-12 text-center animate-on-scroll">
+                    <p class="text-lg text-gray-700 font-semibold max-w-xl mx-auto text-justify px-4">Aseguramos la continuidad de tu operación sin desbordar tu estructura interna ni comprometer el cumplimiento legal.</p>
                 </div>
             </div>
         </section>
 
         <!-- Process Section -->
-        <section id="proceso" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <section id="proceso" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="mb-16 text-center animate-on-scroll">
-                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
-                        <i class="fas fa-cogs mr-2"></i>Nuestro proceso
-                    </span>
-                    <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-gray-900 mb-6">
-                        Gestión de Personal: Temporal Labor para Empresas de Clase Mundial
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        Nuestro modelo de gestión de personal temporal está diseñado para brindar soporte ágil, legal y estratégico a empresas que necesitan mantener altos niveles de productividad, eficiencia y control operativo.
-                    </p>
+                    <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900">Gestión de Personal: Temporal Labor para Empresas de Clase Mundial</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto text-justify px-0">Nuestro modelo de gestión de personal temporal está diseñado para brindar soporte ágil, legal y estratégico a empresas que necesitan mantener altos niveles de productividad, eficiencia y control operativo.</p>
                 </div>
-                
-                <div class="mb-12 text-center animate-on-scroll">
-                    <h3 class="text-2xl font-cinzel font-semibold text-blue-600 mb-4">
-                        <i class="fas fa-star mr-3"></i>Lo que hacemos por ti:
-                    </h3>
-                </div>
-                
-                <div class="relative max-w-6xl mx-auto">
+                <h3 class="text-2xl font-cinzel font-semibold text-blue-600 mb-10 text-center animate-on-scroll">🔹 Lo que hacemos por ti:</h3>
+                <div class="relative">
                     <!-- Timeline Line -->
                     <div class="timeline-connector hidden md:block"></div>
                     
-                    <!-- Process Items -->
-                    <div class="space-y-16">
-                        <!-- Process Item 1 -->
-                        <div class="relative md:flex justify-between items-center animate-on-scroll">
-                            <div class="md:w-5/12"></div>
-                            <div class="hidden md:flex w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-full items-center justify-center text-2xl z-10 shadow-lg">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div class="service-card-enhanced bg-white rounded-2xl shadow-lg p-8 md:w-5/12 border border-gray-100">
-                                <div class="flex items-center mb-4">
-                                    <div class="md:hidden flex-shrink-0 mr-4 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-full flex items-center justify-center">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <h4 class="text-xl font-cinzel font-semibold text-gray-800">
-                                        <i class="fas fa-search text-blue-600 mr-2"></i>Reclutamiento Especializado
-                                    </h4>
-                                </div>
-                                <ul class="text-gray-600 space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Análisis del perfil con base en tu operación</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Publicación, filtrado y entrevistas</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Evaluaciones psicométricas, técnicas y de actitud</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Verificación de referencias laborales y antecedentes</span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!-- Process Item 1 -->
+                    <div class="relative md:flex justify-between items-center mb-12 animate-on-scroll">
+                        <div class="md:w-5/12"></div>
+                        <div class="process-icon hidden md:flex">
+                            <i class="fas fa-search"></i>
                         </div>
-                        
-                        <!-- Process Item 2 -->
-                        <div class="relative md:flex justify-between items-center animate-on-scroll">
-                            <div class="service-card-enhanced bg-white rounded-2xl shadow-lg p-8 md:w-5/12 md:text-right border border-gray-100">
-                                <div class="flex items-center mb-4 md:justify-end">
-                                    <div class="md:hidden flex-shrink-0 mr-4 w-12 h-12 bg-gradient-to-br from-green-600 to-green-800 text-white rounded-full flex items-center justify-center">
-                                        <i class="fas fa-file-contract"></i>
-                                    </div>
-                                    <h4 class="text-xl font-cinzel font-semibold text-gray-800">
-                                        <i class="fas fa-file-contract text-green-600 mr-2"></i>Contratación Formal y Cumplimiento
-                                    </h4>
+                        <div class="bg-gray-50 rounded-xl shadow-md p-6 md:w-5/12 service-card-enhanced">
+                            <div class="flex items-center mb-2">
+                                <div class="md:hidden flex-shrink-0 mr-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center process-icon">
+                                    <i class="fas fa-search"></i>
                                 </div>
-                                <ul class="text-gray-600 space-y-3">
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Contrato de trabajo alineado a la legislación vigente</span>
-                                        <i class="fas fa-check-circle text-green-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Inscripción en seguridad social y cargas fiscales</span>
-                                        <i class="fas fa-check-circle text-green-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Documentación completa, firmada y guardada digitalmente</span>
-                                        <i class="fas fa-check-circle text-green-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Manejo ético y responsable del proceso contractual</span>
-                                        <i class="fas fa-check-circle text-green-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                </ul>
+                                <h4 class="text-xl font-cinzel font-semibold text-gray-800 process-title">🔍 Reclutamiento Especializado</h4>
                             </div>
-                            <div class="hidden md:flex w-16 h-16 bg-gradient-to-br from-green-600 to-green-800 text-white rounded-full items-center justify-center text-2xl z-10 shadow-lg">
-                                <i class="fas fa-file-contract"></i>
-                            </div>
-                            <div class="md:w-5/12"></div>
+                            <ul class="text-gray-600 space-y-2 max-w-md px-0">
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Análisis del perfil con base en tu operación.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Publicación, filtrado y entrevistas.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Evaluaciones psicométricas, técnicas y de actitud.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Verificación de referencias laborales y antecedentes.</li>
+                            </ul>
                         </div>
-                        
-                        <!-- Process Item 3 -->
-                        <div class="relative md:flex justify-between items-center animate-on-scroll">
-                            <div class="md:w-5/12"></div>
-                            <div class="hidden md:flex w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-full items-center justify-center text-2xl z-10 shadow-lg">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="service-card-enhanced bg-white rounded-2xl shadow-lg p-8 md:w-5/12 border border-gray-100">
-                                <div class="flex items-center mb-4">
-                                    <div class="md:hidden flex-shrink-0 mr-4 w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-full flex items-center justify-center">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                    <h4 class="text-xl font-cinzel font-semibold text-gray-800">
-                                        <i class="fas fa-graduation-cap text-purple-600 mr-2"></i>Inducción y Entrenamiento
-                                    </h4>
+                    </div>
+                    
+                    <!-- Process Item 2 -->
+                    <div class="relative md:flex justify-between items-center mb-12 animate-on-scroll animation-delay-200">
+                        <div class="bg-gray-50 rounded-xl shadow-md p-6 md:w-5/12 md:text-right service-card-enhanced">
+                            <div class="flex items-center mb-2">
+                                <div class="md:hidden flex-shrink-0 mr-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center process-icon">
+                                    <i class="fas fa-file-contract"></i>
                                 </div>
-                                <ul class="text-gray-600 space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-purple-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Inducción organizacional y por puesto</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-purple-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Entrenamientos técnicos y en seguridad si aplica</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-purple-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Acompañamiento inicial en el proceso de integración al equipo</span>
-                                    </li>
-                                </ul>
+                                <h4 class="text-xl font-cinzel font-semibold text-gray-800 process-title">📄 Contratación Formal y Cumplimiento</h4>
                             </div>
+                            <ul class="text-gray-600 space-y-1 max-w-md px-0">
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Contrato de trabajo alineado a la legislación vigente.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Inscripción en seguridad social y cargas fiscales.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Documentación completa, firmada y guardada digitalmente.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Manejo ético y responsable del proceso contractual.</li>
+                            </ul>
                         </div>
-                        
-                        <!-- Process Item 4 -->
-                        <div class="relative md:flex justify-between items-center animate-on-scroll">
-                            <div class="service-card-enhanced bg-white rounded-2xl shadow-lg p-8 md:w-5/12 md:text-right border border-gray-100">
-                                <div class="flex items-center mb-4 md:justify-end">
-                                    <div class="md:hidden flex-shrink-0 mr-4 w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-800 text-white rounded-full flex items-center justify-center">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <h4 class="text-xl font-cinzel font-semibold text-gray-800">
-                                        <i class="fas fa-chart-line text-orange-600 mr-2"></i>Supervisión y Control
-                                    </h4>
-                                </div>
-                                <ul class="text-gray-600 space-y-3">
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Seguimiento a asistencia, desempeño y rotación</span>
-                                        <i class="fas fa-check-circle text-orange-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Reemplazos ágiles si es necesario</span>
-                                        <i class="fas fa-check-circle text-orange-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                    <li class="flex items-start md:justify-end md:text-right">
-                                        <span>Evaluaciones periódicas y retroalimentación</span>
-                                        <i class="fas fa-check-circle text-orange-600 ml-3 mt-1 flex-shrink-0 md:order-first md:mr-3 md:ml-0"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="hidden md:flex w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-800 text-white rounded-full items-center justify-center text-2xl z-10 shadow-lg">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="md:w-5/12"></div>
+                        <div class="process-icon hidden md:flex">
+                            <i class="fas fa-file-contract"></i>
                         </div>
-                        
-                        <!-- Process Item 5 -->
-                        <div class="relative md:flex justify-between items-center animate-on-scroll">
-                            <div class="md:w-5/12"></div>
-                            <div class="hidden md:flex w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 text-white rounded-full items-center justify-center text-2xl z-10 shadow-lg">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div class="service-card-enhanced bg-white rounded-2xl shadow-lg p-8 md:w-5/12 border border-gray-100">
-                                <div class="flex items-center mb-4">
-                                    <div class="md:hidden flex-shrink-0 mr-4 w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 text-white rounded-full flex items-center justify-center">
-                                        <i class="fas fa-briefcase"></i>
-                                    </div>
-                                    <h4 class="text-xl font-cinzel font-semibold text-gray-800">
-                                        <i class="fas fa-briefcase text-red-600 mr-2"></i>Gestión Administrativa Completa
-                                    </h4>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <!-- Process Item 3 -->
+                    <div class="relative md:flex justify-between items-center mb-12 animate-on-scroll animation-delay-400">
+                        <div class="md:w-5/12"></div>
+                        <div class="process-icon hidden md:flex">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl shadow-md p-6 md:w-5/12 service-card-enhanced">
+                            <div class="flex items-center mb-2">
+                                <div class="md:hidden flex-shrink-0 mr-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center process-icon">
+                                    <i class="fas fa-graduation-cap"></i>
                                 </div>
-                                <ul class="text-gray-600 space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-red-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Nómina, beneficios y compensaciones</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-red-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Manejo de licencias, permisos y novedades</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-red-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Reportes periódicos para el cliente (ausentismo, rotación, etc.)</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-red-600 mr-3 mt-1 flex-shrink-0"></i>
-                                        <span>Atención y soporte directo al personal</span>
-                                    </li>
-                                </ul>
+                                <h4 class="text-xl font-cinzel font-semibold text-gray-800 process-title">🧠 Inducción y Entrenamiento</h4>
                             </div>
+                            <ul class="text-gray-600 space-y-2 max-w-md px-0">
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Inducción organizacional y por puesto.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Entrenamientos técnicos y en seguridad si aplica.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Acompañamiento inicial en el proceso de integración al equipo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Item 4 -->
+                    <div class="relative md:flex justify-between items-center mb-12 animate-on-scroll animation-delay-600">
+                        <div class="bg-gray-50 rounded-xl shadow-md p-6 md:w-5/12 md:text-right service-card-enhanced">
+                            <div class="flex items-center mb-2">
+                                <div class="md:hidden flex-shrink-0 mr-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center process-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 class="text-xl font-cinzel font-semibold text-gray-800 process-title">📈 Supervisión y Control</h4>
+                            </div>
+                            <ul class="text-gray-600 space-y-2 max-w-md px-0">
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Seguimiento a asistencia, desempeño y rotación.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Reemplazos ágiles si es necesario.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Evaluaciones periódicas y retroalimentación.</li>
+                            </ul>
+                        </div>
+                        <div class="process-icon hidden md:flex">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <!-- Process Item 5 -->
+                    <div class="relative md:flex justify-between items-center animate-on-scroll">
+                        <div class="md:w-5/12"></div>
+                        <div class="process-icon hidden md:flex">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl shadow-md p-6 md:w-5/12 service-card-enhanced">
+                            <div class="flex items-center mb-2">
+                                <div class="md:hidden flex-shrink-0 mr-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center process-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h4 class="text-xl font-cinzel font-semibold text-gray-800 process-title">💼 Gestión Administrativa Completa</h4>
+                            </div>
+                            <ul class="text-gray-600 space-y-2 max-w-md px-0">
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Nómina, beneficios y compensaciones.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Manejo de licencias, permisos y novedades.</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Reportes periódicos para el cliente (ausentismo, rotación, etc.).</li>
+                                <li class="flex items-start"><span class="inline-block mr-2">•</span> Atención y soporte directo al personal.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-20 text-center animate-on-scroll">
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-                        <p class="text-xl text-gray-700 italic max-w-4xl mx-auto leading-relaxed">
-                            <i class="fas fa-quote-left text-blue-600 mr-3"></i>
-                            Nos convertimos en una extensión de tu equipo de Recursos Humanos, asumiendo con responsabilidad todos los aspectos de la gestión del talento para que tú puedas enfocarte en los objetivos estratégicos de tu negocio.
-                            <i class="fas fa-quote-right text-blue-600 ml-3"></i>
-                        </p>
-                    </div>
+                <div class="mt-16 text-center animate-on-scroll">
+                    <p class="text-lg text-gray-700 italic max-w-xl mx-auto text-justify px-0">Nos convertimos en una extensión de tu equipo de Recursos Humanos, asumiendo con responsabilidad todos los aspectos de la gestión del talento para que tú puedas enfocarte en los objetivos estratégicos de tu negocio.</p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contacto" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <section id="contacto" class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
-                        <i class="fas fa-envelope mr-2"></i>Contacto
-                    </span>
-                    <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-gray-900 mb-6">Comunícate con Nosotros</h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                        Nos encanta escuchar tus necesidades y ofrecerte una solución a medida.
-                    </p>
+                <div class="text-center mb-12 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900">Comunícate con Nosotros</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-xl mx-auto text-justify px-4">Nos encanta escuchar tus necesidades y ofrecerte una solución a medida.</p>
                 </div>
-                
-                <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 animate-on-scroll">
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 bg-white p-8 sm:p-12 rounded-2xl shadow-lg glass-effect animate-on-scroll">
                     <!-- Contact Information -->
-                    <div class="service-card-enhanced bg-white p-8 sm:p-12 rounded-2xl shadow-lg border border-gray-100">
-                        <h3 class="text-2xl font-cinzel font-bold text-gray-900 mb-8">Información de Contacto</h3>
-                        <div class="space-y-6">
-                            <a href="https://wa.me/18495170202" target="_blank" class="flex items-center space-x-4 text-gray-600 hover:text-green-600 group transition-colors p-4 rounded-lg hover:bg-green-50">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors">
-                                    <i class="fab fa-whatsapp text-2xl text-green-600"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">WhatsApp</p>
-                                    <p class="group-hover:underline">(849) 517-0202</p>
-                                </div>
-                            </a>
-                            
-                            <a href="tel:8495170202" class="flex items-center space-x-4 text-gray-600 hover:text-blue-600 group transition-colors p-4 rounded-lg hover:bg-blue-50">
-                                <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                                    <i class="fas fa-phone-alt text-xl text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Teléfono</p>
-                                    <p class="group-hover:underline">849-517-0202</p>
-                                </div>
-                            </a>
-                            
-                            <a href="mailto:servicios@controllersrd.com" class="flex items-center space-x-4 text-gray-600 hover:text-purple-600 group transition-colors p-4 rounded-lg hover:bg-purple-50">
-                                <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors">
-                                    <i class="fas fa-envelope text-xl text-purple-600"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Email</p>
-                                    <p class="group-hover:underline">servicios@controllersrd.com</p>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-cinzel font-bold text-gray-900">Información de Contacto</h3>
+                        <a href="https://wa.me/18495170202" target="_blank" class="contact-link">
+                            <i class="fab fa-whatsapp text-2xl w-6 text-green-500"></i>
+                            <span>(849) 517-0202</span>
+                        </a>
+                        <a href="tel:8495170202" class="contact-link">
+                            <i class="fas fa-phone-alt text-xl w-6 text-blue-600"></i>
+                            <span>849-517-0202</span>
+                        </a>
+                        <a href="mailto:servicios@controllersrd.com" class="contact-link">
+                            <i class="fas fa-envelope text-xl w-6 text-gray-500"></i>
+                            <span>servicios@controllersrd.com</span>
+                        </a>
                         
-                        <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
-                            <h4 class="font-cinzel font-semibold text-gray-800 mb-2">Horario de Atención</h4>
-                            <p class="text-gray-600">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                            <p class="text-gray-600">Sábados: 8:00 AM - 12:00 PM</p>
+                        <!-- Company Logo in Contact -->
+                        <div class="pt-6">
+                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-24 w-auto opacity-80">
                         </div>
                     </div>
                     
                     <!-- Contact Form -->
-                    <div class="service-card-enhanced bg-white p-8 sm:p-12 rounded-2xl shadow-lg border border-gray-100">
-                        <h3 class="text-2xl font-cinzel font-bold text-gray-900 mb-8">Envíanos un Mensaje</h3>
-                        <form id="contact-form" action="#" method="POST" class="space-y-6">
-                            <div>
-                                <label for="from_name" class="block text-sm font-semibold text-gray-700 mb-2">Nombre completo</label>
-                                <input type="text" 
-                                       id="from_name"
-                                       name="from_name" 
-                                       placeholder="Tu nombre completo" 
-                                       class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400">
-                            </div>
-                            
-                            <div>
-                                <label for="from_email" class="block text-sm font-semibold text-gray-700 mb-2">Correo electrónico *</label>
-                                <input type="email" 
-                                       id="from_email"
-                                       name="from_email" 
-                                       placeholder="tu@email.com" 
-                                       required 
-                                       class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400">
-                            </div>
-                            
-                            <div>
-                                <label for="company" class="block text-sm font-semibold text-gray-700 mb-2">Empresa</label>
-                                <input type="text" 
-                                       id="company"
-                                       name="company" 
-                                       placeholder="Nombre de tu empresa" 
-                                       class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400">
-                            </div>
-                            
-                            <div>
-                                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Mensaje</label>
-                                <textarea id="message"
-                                          name="message" 
-                                          placeholder="Cuéntanos sobre tus necesidades de personal temporal..." 
-                                          rows="5" 
-                                          class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400 resize-none"></textarea>
-                            </div>
-                            
-                            <button type="submit" 
-                                    id="submit-btn" 
-                                    class="btn-primary w-full text-white hover:shadow-xl transition-all duration-300 font-semibold py-4 px-8 rounded-lg text-lg group">
-                                <span class="btn-text flex items-center justify-center">
-                                    <i class="fas fa-paper-plane mr-3 group-hover:animate-pulse"></i>
-                                    Enviar Mensaje
-                                </span>
-                                <span class="btn-loading hidden flex items-center justify-center">
-                                    <i class="fas fa-spinner fa-spin mr-3"></i>
-                                    Enviando...
-                                </span>
+                    <div>
+                        <form id="contact-form" action="#" method="POST" class="space-y-4">
+                            <input type="text" name="from_name" placeholder="Nombre *" required class="form-input">
+                            <input type="email" name="from_email" placeholder="Correo Electrónico *" required class="form-input">
+                            <input type="text" name="company" placeholder="Empresa (opcional)" class="form-input">
+                            <textarea name="message" placeholder="Mensaje *" rows="4" required class="form-input"></textarea>
+                            <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-blue-700/50 transform hover:scale-105 btn-primary">
+                                <span class="btn-text">Enviar Mensaje</span>
+                                <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin"></i> Enviando...</span>
                             </button>
                         </form>
                     </div>
@@ -847,61 +412,27 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Company Info -->
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-users text-white text-lg"></i>
-                        </div>
-                        <span class="font-cinzel font-bold text-xl">Controllers RD</span>
-                    </div>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Especialistas en personal temporal y soluciones de talento humano para empresas de clase mundial.
-                    </p>
-                    <p class="text-gray-400 text-sm">RNC: 132-457609</p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="font-cinzel font-semibold text-lg mb-6">Enlaces Rápidos</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#inicio" class="text-gray-300 hover:text-blue-400 transition-colors">Inicio</a></li>
-                        <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-blue-400 transition-colors">Sobre Nosotros</a></li>
-                        <li><a href="#servicios" class="text-gray-300 hover:text-blue-400 transition-colors">Servicios</a></li>
-                        <li><a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="font-cinzel font-semibold text-lg mb-6">Contacto</h4>
-                    <div class="space-y-3">
-                        <p class="text-gray-300 flex items-center">
-                            <i class="fas fa-phone mr-3 text-blue-400"></i>
-                            (849) 517-0202
-                        </p>
-                        <p class="text-gray-300 flex items-center">
-                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
-                            servicios@controllersrd.com
-                        </p>
+    <footer class="bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="images/Logo.png" alt="Controllers RD Logo" class="h-8 w-auto mr-3">
+                    <div class="text-center md:text-left text-gray-500">
+                        <p>&copy; 2025 Controllers, SRL. Todos los derechos reservados.</p>
+                        <p class="text-sm">RNC 132-457609</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-400">
-                    &copy; 2025 Controllers, SRL. Todos los derechos reservados.
-                </p>
+                <div class="text-center md:text-right text-gray-500 text-sm">
+                    <p>Especialistas en Personal Temporal</p>
+                    <p>República Dominicana</p>
+                </div>
             </div>
         </div>
     </footer>
     
     <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" class="fixed bottom-6 right-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-4 hover:shadow-xl transition-all duration-300 z-40">
-        <i class="fas fa-arrow-up text-lg"></i>
+    <button id="scroll-to-top" class="fixed bottom-5 right-5 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-4 hover:bg-blue-700 transition-all duration-300 btn-primary" aria-label="Volver al inicio de la página">
+        <i class="fas fa-arrow-up"></i>
     </button>
     
     <!-- JavaScript -->
