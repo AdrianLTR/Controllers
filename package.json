@@ -1,0 +1,23 @@
+{
+  "name": "controllers-rd-website",
+  "version": "1.0.0",
+  "description": "A modern and professional website for Controllers RD - Personal Temporal Solutions",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "controllers-rd",
+    "personal-temporal",
+    "temporal-labor",
+    "human-resources",
+    "staffing",
+    "dominican-republic"
+  ],
+  "author": "Controllers RD",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
