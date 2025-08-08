@@ -1,0 +1,12 @@
+# Estructura de Carpetas
+
+## css/
+Contiene todos los archivos de estilos CSS personalizados.
+
+## js/ 
+Contiene todos los archivos JavaScript para funcionalidad interactiva.
+
+## Archivos Principales
+
+- `index.html` - Página principal del sitio web
+- `README.md` - Documentación del proyecto

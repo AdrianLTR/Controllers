@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Imágenes - Controllers RD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.success { background: #10b981; color: white; }
+        .status.error { background: #ef4444; color: white; }
+        .status.loading { background: #f59e0b; color: white; }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .image-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        .image-preview.error {
+            background: #fef2f2;
+            border-color: #ef4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ef4444;
+        }
+        .image-info {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .image-path {
+            font-family: monospace;
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+        .server-info {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .server-info h3 {
+            margin: 0 0 10px 0;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🖼️ Diagnóstico de Imágenes - Controllers RD</h1>
+        <p>Esta página te ayuda a verificar si las imágenes se cargan correctamente.</p>
+    </div>
+
+    <div class="server-info">
+        <h3>📡 Información del Servidor</h3>
+        <p><strong>URL actual:</strong> <span id="current-url"></span></p>
+        <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
+        <p id="server-recommendation" style="margin: 10px 0;"></p>
+    </div>
+
+    <div class="image-grid" id="image-grid">
+        <!-- Las imágenes se cargarán aquí dinámicamente -->
+    </div>
+
+    <script>
+        // Lista de imágenes a verificar
+        const images = [
+            'images/Logo.png',
+            'images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg',
+            'images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg',
+            'images/gente-trabajo-estetoscopio-pensativo.jpg',
+            'images/hombre-sonriente-de-tiro-medio-con-casco.jpg',
+            'images/de-cerca-las-personas-que-trabajan-desde-casa.jpg'
+        ];
+
+        // Mostrar información del servidor
+        const currentUrl = window.location.href;
+        const protocol = window.location.protocol;
+        
+        document.getElementById('current-url').textContent = currentUrl;
+        document.getElementById('protocol').textContent = protocol;
+        
+        const recommendationEl = document.getElementById('server-recommendation');
+        if (protocol === 'file:') {
+            recommendationEl.innerHTML = `
+                <span class="status error">⚠️ PROBLEMA DETECTADO</span><br>
+                Estás ejecutando desde el protocolo file://. Las imágenes pueden no cargar correctamente.<br>
+                <strong>Solución:</strong> Ejecuta <code>iniciar-servidor.bat</code> y abre <a href="http://localhost:8000/diagnostico-imagenes.html" target="_blank">http://localhost:8000/diagnostico-imagenes.html</a>
+            `;
+        } else if (protocol === 'http:' || protocol === 'https:') {
+            recommendationEl.innerHTML = `
+                <span class="status success">✅ SERVIDOR HTTP CORRECTO</span><br>
+                Las imágenes deberían cargar correctamente desde este servidor.
+            `;
+        }
+
+        // Función para crear card de imagen
+        function createImageCard(imagePath) {
+            const card = document.createElement('div');
+            card.className = 'image-card';
+            
+            const statusSpan = document.createElement('span');
+            statusSpan.className = 'status loading';
+            statusSpan.textContent = '⏳ Cargando...';
+            
+            const img = document.createElement('img');
+            img.className = 'image-preview';
+            img.alt = `Preview de ${imagePath}`;
+            
+            const info = document.createElement('div');
+            info.className = 'image-info';
+            
+            card.appendChild(statusSpan);
+            card.appendChild(img);
+            card.appendChild(info);
+            
+            // Probar la carga de la imagen
+            const testImg = new Image();
+            
+            testImg.onload = function() {
+                statusSpan.className = 'status success';
+                statusSpan.textContent = '✅ Cargada';
+                img.src = imagePath;
+                info.innerHTML = `
+                    <div class="image-path">${imagePath}</div>
+                    <p><strong>Dimensiones:</strong> ${this.naturalWidth} × ${this.naturalHeight}px</p>
+                    <p><strong>Tamaño estimado:</strong> ${Math.round(this.naturalWidth * this.naturalHeight * 3 / 1024)} KB</p>
+                `;
+            };
+            
+            testImg.onerror = function() {
+                statusSpan.className = 'status error';
+                statusSpan.textContent = '❌ Error';
+                img.className = 'image-preview error';
+                img.innerHTML = '❌ No se pudo cargar';
+                info.innerHTML = `
+                    <div class="image-path">${imagePath}</div>
+                    <p style="color: #ef4444;"><strong>Error:</strong> La imagen no se pudo cargar</p>
+                    <p><strong>Posibles causas:</strong></p>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li>Archivo no existe</li>
+                        <li>Problema de permisos</li>
+                        <li>Protocolo file:// bloqueado</li>
+                    </ul>
+                `;
+            };
+            
+            testImg.src = imagePath;
+            
+            return card;
+        }
+
+        // Cargar todas las imágenes
+        const grid = document.getElementById('image-grid');
+        images.forEach(imagePath => {
+            const card = createImageCard(imagePath);
+            grid.appendChild(card);
+        });
+
+        // Estadísticas finales
+        setTimeout(() => {
+            const successCount = document.querySelectorAll('.status.success').length;
+            const errorCount = document.querySelectorAll('.status.error').length;
+            
+            console.log(`📊 Resultados del diagnóstico:`);
+            console.log(`✅ Imágenes cargadas: ${successCount}`);
+            console.log(`❌ Imágenes con error: ${errorCount}`);
+            
+            if (errorCount === 0) {
+                console.log('🎉 ¡Todas las imágenes se cargaron correctamente!');
+            } else {
+                console.warn(`⚠️ ${errorCount} imagen(es) tuvieron problemas de carga`);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
