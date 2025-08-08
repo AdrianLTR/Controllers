@@ -353,10 +353,7 @@ class VideoBackgroundHandler {
     }
 
     optimizeVideo() {
-        // Reduce video quality on mobile devices
-        if (window.innerWidth < 768) {
-            this.video.style.opacity = '0.1';
-        }
+    // Keep default CSS opacity on all devices; no extra dimming on mobile
 
         // Pause video when not in viewport to save resources
         const observer = new IntersectionObserver((entries) => {
