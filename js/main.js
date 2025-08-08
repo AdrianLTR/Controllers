@@ -360,8 +360,8 @@ class VideoBackgroundHandler {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     this.video.play().catch(() => {
-                        console.warn('Video autoplay failed - this is normal in some browsers');
-                        this.showFallback();
+                        console.warn('Video autoplay blocked - showing tap-to-play overlay');
+                        this.showPlayOverlay();
                     });
                 } else {
                     this.video.pause();
@@ -370,6 +370,43 @@ class VideoBackgroundHandler {
         });
 
         observer.observe(this.video);
+    }
+
+    showPlayOverlay() {
+        // Ensure video is visible
+        if (this.video) {
+            this.video.style.opacity = '';
+        }
+        // Hide loading and fallback if any
+        this.hideLoading();
+        if (this.videoFallback) {
+            this.videoFallback.style.opacity = '0';
+        }
+
+        // Avoid duplicating overlay
+        if (document.getElementById('video-play-overlay')) return;
+
+        const overlay = document.createElement('div');
+        overlay.id = 'video-play-overlay';
+        overlay.innerHTML = `
+            <button type="button" aria-label="Reproducir video" class="video-play-button">
+                <i class="fas fa-play"></i> Ver video
+            </button>
+        `;
+        // Position overlay inside hero section
+        const hero = document.getElementById('inicio') || document.body;
+        hero.appendChild(overlay);
+
+        const btn = overlay.querySelector('button');
+        btn.addEventListener('click', async () => {
+            try {
+                this.video.muted = true;
+                await this.video.play();
+                overlay.remove();
+            } catch (e) {
+                console.warn('Manual play failed, keeping fallback overlay', e);
+            }
+        });
     }
 }
 
