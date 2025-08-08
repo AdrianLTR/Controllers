@@ -97,7 +97,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.72; /* un poco más visible sin saturar */
+    opacity: 0.82; /* un poco más visible sin saturar */
     z-index: 1;
     /* evitar filters costosos en GPU para mejorar rendimiento */
 }
