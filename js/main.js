@@ -249,6 +249,56 @@ class VideoBackgroundHandler {
             return;
         }
 
+        // Do not load video for users who prefer reduced motion or data saving
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const saveData = connection?.saveData === true;
+        const slowConnection = connection && /^(2g|slow-2g)$/i.test(connection.effectiveType || '');
+
+        if (prefersReducedMotion || saveData || slowConnection) {
+            // Avoid loading the video altogether
+            this.showFallback();
+            return;
+        }
+
+        // Lazy-load the video only when hero enters the viewport
+        const sourceEl = document.getElementById('hero-video-source');
+        const assignSrcIfNeeded = () => {
+            if (sourceEl && sourceEl.dataset.src && !sourceEl.src) {
+                sourceEl.src = sourceEl.dataset.src;
+                this.video.load();
+            }
+        };
+        const heroSection = document.getElementById('inicio');
+        const onceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    assignSrcIfNeeded();
+                    this.startLoadLifecycle();
+                    onceObserver.disconnect();
+                }
+            });
+        }, { rootMargin: '100px' });
+        if (heroSection) {
+            onceObserver.observe(heroSection);
+        } else {
+            // Fallback: assign immediately
+            assignSrcIfNeeded();
+            this.startLoadLifecycle();
+        }
+
+        // Set preload strategy
+        if (connection && connection.effectiveType === '4g') {
+            this.video.preload = 'auto';
+        } else {
+            this.video.preload = 'metadata';
+        }
+
+        // Show loading indicator initially (it will hide on loadeddata or fallback path)
+        this.showLoading();
+    }
+
+    startLoadLifecycle() {
         // Set up timeout for video loading
         const loadingTimeout = setTimeout(() => {
             console.warn('Video loading timeout - switching to fallback image');
@@ -274,15 +324,8 @@ class VideoBackgroundHandler {
             this.showFallback();
         });
 
-        // Preload video on fast connections
-        if (navigator.connection && navigator.connection.effectiveType === '4g') {
-            this.video.preload = 'auto';
-        } else {
-            this.video.preload = 'metadata';
-        }
-
-        // Show loading indicator initially
-        this.showLoading();
+    // Autoplay policy handling
+    this.video.muted = true;
     }
 
     showLoading() {

@@ -84,7 +84,7 @@
 
     <main>
         <!-- Hero Section with Video Background -->
-        <section id="inicio" class="relative min-h-[80vh] flex items-center overflow-hidden hero-section">
+    <section id="inicio" class="relative min-h-[80vh] flex items-center overflow-hidden hero-section">
             <!-- Video Background -->
             <video 
                 id="hero-video"
@@ -93,9 +93,12 @@
                 muted 
                 loop 
                 playsinline
-                preload="metadata"
-                poster="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg">
-                <source src="https://cdn.pixabay.com/video/2025/04/23/273922_large.mp4" type="video/mp4">
+        preload="metadata"
+        poster="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg">
+        <!-- Usamos data-src para diferir la carga del video hasta que JS lo habilite -->
+                <source id="hero-video-source" data-src="Videos/Oficina.mp4" type="video/mp4">
+                <!-- Opcional: agregar una segunda fuente WebM si se dispone -->
+                <!-- <source data-src="Videos/Oficina.webm" type="video/webm"> -->
                 <!-- Fallback image if video fails -->
                 <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personas trabajando con equipos de seguridad" class="w-full h-full object-cover">
             </video>
