@@ -394,28 +394,11 @@ body {
     width: 2px;
     background: linear-gradient(to bottom, var(--clr-primary), var(--clr-primary-dark));
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 0; /* detrás de los íconos */
+    pointer-events: none; /* no bloquear interacción */
 }
 
-@media (min-width: 768px) {
-    .process-item {
-        width: 50%;
-        padding-right: 50px;
-    }
-    .process-item.md\:ml-auto {
-        margin-left: auto;
-        padding-left: 50px;
-        padding-right: 0;
-    }
-    .process-item.md\:text-right .process-content {
-        margin-left: 0;
-        margin-right: 1.5rem;
-        text-align: right;
-    }
-    .process-item.md\:ml-auto .process-icon {
-        order: 1;
-    }
-}
+/* (El bloque @media existente para timeline más arriba permanece; se eliminó duplicación incorrecta) */
 
 @media (max-width: 768px) {
     .timeline-connector {
