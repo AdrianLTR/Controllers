@@ -57,8 +57,8 @@
                 <!-- Desktop Navigation Centered -->
                 <nav class="hidden md:flex flex-1 justify-center items-center space-x-8">
                     <a href="#inicio" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Inicio</a>
-                    <a href="#sobre-nosotros" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Sobre Nosotros</a>
                     <a href="#servicios" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Servicios</a>
+                    <a href="#sobre-nosotros" class="text-gray-600 hover:text-blue-600 font-medium transition-colors nav-link-enhanced">Sobre Nosotros</a>
                     <a href="#contacto" class="bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 font-medium py-2 px-5 rounded-full shadow-lg hover:shadow-blue-700/50 btn-primary">Contacto</a>
                 </nav>
                 
@@ -75,8 +75,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-lg">
             <div class="text-center flex flex-col space-y-4 p-5">
                 <a href="#inicio" class="block py-2 text-gray-600 hover:text-blue-600">Inicio</a>
-                <a href="#sobre-nosotros" class="block py-2 text-gray-600 hover:text-blue-600">Sobre Nosotros</a>
                 <a href="#servicios" class="block py-2 text-gray-600 hover:text-blue-600">Servicios</a>
+                <a href="#sobre-nosotros" class="block py-2 text-gray-600 hover:text-blue-600">Sobre Nosotros</a>
                 <a href="#contacto" class="block py-2 text-gray-600 hover:text-blue-600">Contacto</a>
             </div>
         </div>
@@ -133,7 +133,48 @@
             </div>
         </section>
 
-        <!-- About Us Section -->
+        <!-- Services Section moved up for priority -->
+        <section id="servicios" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900">Soluciones a tu Medida</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-xl mx-auto text-justify px-4">Para Controllers cada empresa es única, por lo que diseñamos esquemas personalizados según sus retos, tipo de industria, ubicación y objetivos de productividad.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll">
+                        <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personal con equipo de seguridad industrial" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Contratación Flexible</h3>
+                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Contratación temporal operativa por turnos, proyectos o producción estacional. Esquemas mixtos de personal rotativo y fijo.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 2 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-200">
+                        <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" alt="Persona en soporte administrativo trabajando desde casa" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Equipos Comerciales y de Soporte</h3>
+                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Suministro de personal administrativo, fuerza de ventas, impulsadores, promotores y personal para campañas de mercado.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 3 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-400">
+                        <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" alt="Trabajador industrial productivo" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Cobertura y Productividad</h3>
+                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Cobertura para reemplazos por vacaciones, licencias o ausencias prolongadas. Soluciones por metas, productividad o cumplimiento de indicadores.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center animate-on-scroll">
+                    <p class="text-lg text-gray-700 font-semibold max-w-xl mx-auto text-justify px-4">Aseguramos la continuidad de tu operación sin desbordar tu estructura interna ni comprometer el cumplimiento legal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us / Mission Vision Values Section -->
         <section id="sobre-nosotros" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
@@ -151,8 +192,8 @@
                         </p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center animate-on-scroll animation-delay-200">
-                        <img src="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced">
-                        <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0">
+                        <img src="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced" loading="lazy" decoding="async">
+                        <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0" loading="lazy" decoding="async">
                     </div>
                 </div>
                 
@@ -202,46 +243,6 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="servicios" class="py-24 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900">Soluciones a tu Medida</h2>
-                    <p class="text-lg text-gray-600 mt-4 max-w-xl mx-auto text-justify px-4">Para Controllers cada empresa es única, por lo que diseñamos esquemas personalizados según sus retos, tipo de industria, ubicación y objetivos de productividad.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll">
-                        <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personal con equipo de seguridad industrial" class="w-full h-56 object-cover">
-                        <div class="p-6 flex-grow">
-                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Contratación Flexible</h3>
-                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Contratación temporal operativa por turnos, proyectos o producción estacional. Esquemas mixtos de personal rotativo y fijo.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Service Card 2 -->
-                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-200">
-                        <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" alt="Persona en soporte administrativo trabajando desde casa" class="w-full h-56 object-cover">
-                        <div class="p-6 flex-grow">
-                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Equipos Comerciales y de Soporte</h3>
-                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Suministro de personal administrativo, fuerza de ventas, impulsadores, promotores y personal para campañas de mercado.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Service Card 3 -->
-                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-400">
-                        <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" alt="Trabajador industrial productivo" class="w-full h-56 object-cover">
-                        <div class="p-6 flex-grow">
-                            <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Cobertura y Productividad</h3>
-                            <p class="text-gray-600 max-w-xs mx-auto text-justify px-2 card-text">Cobertura para reemplazos por vacaciones, licencias o ausencias prolongadas. Soluciones por metas, productividad o cumplimiento de indicadores.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-12 text-center animate-on-scroll">
-                    <p class="text-lg text-gray-700 font-semibold max-w-xl mx-auto text-justify px-4">Aseguramos la continuidad de tu operación sin desbordar tu estructura interna ni comprometer el cumplimiento legal.</p>
-                </div>
-            </div>
-        </section>
 
         <!-- Process Section -->
         <section id="proceso" class="py-24 bg-white">

@@ -52,6 +52,9 @@ class ResourceValidator {
     validateImages() {
         const images = document.querySelectorAll('img[src]');
         let brokenImageCount = 0;
+
+    // iOS specific workaround: force decode after load to avoid false 'failed' alerts in some WKWebView contexts
+    const isiOS = /ipad|iphone|ipod/i.test(navigator.userAgent);
         
         images.forEach((img, index) => {
             // Create a test image to check if it loads
@@ -61,6 +64,9 @@ class ResourceValidator {
                 console.log(`✅ Image loaded successfully: ${img.src}`);
                 img.classList.remove('broken');
                 img.style.opacity = '1';
+                if (isiOS && img.decode) {
+                    img.decode().catch(()=>{});
+                }
             };
             
             testImg.onerror = () => {
