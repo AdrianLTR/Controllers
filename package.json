@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "npx serve . -p 3000",
     "start": "npx serve . -p 3000",
-    "build": "echo 'Build complete - static files ready'"
+    "build": "echo 'Build complete - static files ready'",
+    "generate:webp": "node scripts/generate-webp.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "sharp": "^0.34.3"
   }
 }
