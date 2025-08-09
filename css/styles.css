@@ -4,8 +4,9 @@
 ========================================
 */
 :root {
-    --clr-primary: #3b82f6; /* blue-500 */
-    --clr-primary-dark: #1d4ed8; /* blue-700 */
+    /* Azul más oscuro (antes #3b82f6 / #1d4ed8) */
+    --clr-primary: #2563eb; /* blue-600 */
+    --clr-primary-dark: #1e3a8a; /* blue-800 */
     --clr-gray-900: #111827;
     --clr-gray-800: #1f2937;
     --clr-gray-700: #374151;
@@ -223,8 +224,8 @@ body {
 
 /* Estilos específicos para cada tipo de ícono */
 .card-icon.mission {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
 }
 
 .card-icon.vision {
