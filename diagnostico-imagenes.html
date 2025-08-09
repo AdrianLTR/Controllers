@@ -90,7 +90,7 @@
         <h3>📡 Información del Servidor</h3>
         <p><strong>URL actual:</strong> <span id="current-url"></span></p>
         <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
-        <p id="server-recommendation" style="margin: 10px 0;"></p>
+    <p id="server-recommendation" style="margin: 10px 0;"></p>
     </div>
 
     <div class="image-grid" id="image-grid">
@@ -116,18 +116,7 @@
         document.getElementById('protocol').textContent = protocol;
         
         const recommendationEl = document.getElementById('server-recommendation');
-        if (protocol === 'file:') {
-            recommendationEl.innerHTML = `
-                <span class="status error">⚠️ PROBLEMA DETECTADO</span><br>
-                Estás ejecutando desde el protocolo file://. Las imágenes pueden no cargar correctamente.<br>
-                <strong>Solución:</strong> Ejecuta <code>iniciar-servidor.bat</code> y abre <a href="http://localhost:8000/diagnostico-imagenes.html" target="_blank">http://localhost:8000/diagnostico-imagenes.html</a>
-            `;
-        } else if (protocol === 'http:' || protocol === 'https:') {
-            recommendationEl.innerHTML = `
-                <span class="status success">✅ SERVIDOR HTTP CORRECTO</span><br>
-                Las imágenes deberían cargar correctamente desde este servidor.
-            `;
-        }
+    recommendationEl.innerHTML = `<span class="status success">🔍 Diagnóstico rápido</span><br>Protocolo: <strong>${protocol}</strong>`;
 
         // Función para crear card de imagen
         function createImageCard(imagePath) {
@@ -165,19 +154,11 @@
             
             testImg.onerror = function() {
                 statusSpan.className = 'status error';
-                statusSpan.textContent = '❌ Error';
+                statusSpan.textContent = '⚠️';
                 img.className = 'image-preview error';
-                img.innerHTML = '❌ No se pudo cargar';
-                info.innerHTML = `
-                    <div class="image-path">${imagePath}</div>
-                    <p style="color: #ef4444;"><strong>Error:</strong> La imagen no se pudo cargar</p>
-                    <p><strong>Posibles causas:</strong></p>
-                    <ul style="margin: 5px 0; padding-left: 20px;">
-                        <li>Archivo no existe</li>
-                        <li>Problema de permisos</li>
-                        <li>Protocolo file:// bloqueado</li>
-                    </ul>
-                `;
+                img.alt = 'Imagen no cargada';
+                img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+                info.innerHTML = `<div class=\"image-path\">${imagePath}</div><p style=\"color:#ef4444;\">No cargó (ver consola)</p>`;
             };
             
             testImg.src = imagePath;

@@ -132,7 +132,7 @@
                     <!-- Logo: en móvil pasa a orden 1 -->
                     <div class="flex justify-center md:justify-end md:w-1/2 animate-fade-in-up animation-delay-300 order-1 md:order-2">
                         <div class="text-center">
-                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-72 md:h-96 object-contain animate-float">
+                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-72 md:h-96 object-contain animate-float" loading="eager" fetchpriority="high">
                         </div>
                     </div>
                 </div>
@@ -395,7 +395,7 @@
                         
                         <!-- Company Logo in Contact -->
                         <div class="pt-6">
-                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-24 w-auto opacity-80">
+                            <img src="images/Logo.png" alt="Controllers RD Logo" class="h-24 w-auto opacity-80" loading="lazy">
                         </div>
                     </div>
                     
@@ -422,7 +422,7 @@
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                    <img src="images/Logo.png" alt="Controllers RD Logo" class="h-8 w-auto mr-3">
+                    <img src="images/Logo.png" alt="Controllers RD Logo" class="h-8 w-auto mr-3" loading="lazy">
                     <div class="text-center md:text-left text-gray-500">
                         <p>&copy; 2025 Controllers, SRL. Todos los derechos reservados.</p>
                         <p class="text-sm">RNC 132-457609</p>
@@ -442,7 +442,25 @@
     </button>
     
     <!-- JavaScript -->
-    <script src="js/emailjs-config.js"></script>
-    <script src="js/main.js"></script>
+        <script src="js/emailjs-config.js"></script>
+        <script src="js/main.js"></script>
+        <!-- Fallback silencioso para imágenes que fallen -->
+        <script>
+        (function(){
+            const tinyPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+            function applyFallback(img){
+                if(img.dataset.fallbackApplied) return; 
+                img.dataset.fallbackApplied = '1';
+                img.src = tinyPlaceholder;
+                img.classList.add('opacity-60');
+                if(!img.alt) img.alt = 'Imagen';
+            }
+            window.addEventListener('DOMContentLoaded',()=>{
+                document.querySelectorAll('img').forEach(img=>{
+                    img.addEventListener('error',()=>applyFallback(img));
+                });
+            });
+        })();
+        </script>
 </body>
 </html>
