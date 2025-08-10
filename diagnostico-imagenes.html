@@ -48,14 +48,7 @@
             margin-bottom: 10px;
             border: 2px solid #e5e7eb;
         }
-        .image-preview.error {
-            background: #fef2f2;
-            border-color: #ef4444;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ef4444;
-        }
+    .image-preview.error { opacity: 0.35; filter: grayscale(1); }
         .image-info {
             font-size: 14px;
             color: #6b7280;
@@ -100,12 +93,12 @@
     <script>
         // Lista de imágenes a verificar
         const images = [
-            'images/Logo.png',
-            'images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg',
-            'images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg',
-            'images/gente-trabajo-estetoscopio-pensativo.jpg',
-            'images/hombre-sonriente-de-tiro-medio-con-casco.jpg',
-            'images/de-cerca-las-personas-que-trabajan-desde-casa.jpg'
+            'images/Logo.webp',
+            'images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.webp',
+            'images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.webp',
+            'images/gente-trabajo-estetoscopio-pensativo.webp',
+            'images/hombre-sonriente-de-tiro-medio-con-casco.webp',
+            'images/de-cerca-las-personas-que-trabajan-desde-casa.webp'
         ];
 
         // Mostrar información del servidor
@@ -154,11 +147,11 @@
             
             testImg.onerror = function() {
                 statusSpan.className = 'status error';
-                statusSpan.textContent = '⚠️';
-                img.className = 'image-preview error';
-                img.alt = 'Imagen no cargada';
+                statusSpan.textContent = '—';
+                img.classList.add('error');
+                img.alt = '';
                 img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-                info.innerHTML = `<div class=\"image-path\">${imagePath}</div><p style=\"color:#ef4444;\">No cargó (ver consola)</p>`;
+                info.innerHTML = `<div class=\"image-path\">${imagePath}</div><p style=\"color:#6b7280;\">Sin cargar</p>`;
             };
             
             testImg.src = imagePath;

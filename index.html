@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controllers RD - Soluciones de Personal Temporal</title>
+    <!-- Preload de imágenes críticas y de sección para carga inmediata -->
+    <link rel="preload" as="image" href="images/Logo.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/gente-trabajo-estetoscopio-pensativo.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/hombre-sonriente-de-tiro-medio-con-casco.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/de-cerca-las-personas-que-trabajan-desde-casa.webp" type="image/webp">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -134,7 +141,7 @@
                         <div class="text-center">
                             <picture>
                                 <source srcset="images/Logo.webp" type="image/webp">
-                                <img src="images/Logo.png" alt="Controllers RD Logo" class="h-72 md:h-96 object-contain animate-float" loading="eager" fetchpriority="high">
+                                <img src="images/Logo.png" alt="Controllers RD Logo" class="h-72 md:h-96 object-contain animate-float" fetchpriority="high">
                             </picture>
                         </div>
                     </div>
@@ -162,11 +169,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center animate-on-scroll animation-delay-200">
                         <picture>
                             <source srcset="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.webp" type="image/webp">
-                            <img src="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced" loading="lazy" decoding="async">
+                            <img src="images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced" decoding="async">
                         </picture>
                         <picture>
                             <source srcset="images/gente-trabajo-estetoscopio-pensativo.webp" type="image/webp">
-                            <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0" loading="lazy" decoding="async">
+                            <img src="images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0" decoding="async">
                         </picture>
                     </div>
                 </div>
@@ -185,7 +192,7 @@
                     <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll">
                         <picture>
                             <source srcset="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.webp" type="image/webp">
-                            <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personal con equipo de seguridad industrial" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+                            <img src="images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg" alt="Personal con equipo de seguridad industrial" class="w-full h-56 object-cover" decoding="async">
                         </picture>
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Contratación Flexible</h3>
@@ -195,7 +202,7 @@
                     <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-200">
                         <picture>
                             <source srcset="images/de-cerca-las-personas-que-trabajan-desde-casa.webp" type="image/webp">
-                            <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" alt="Persona en soporte administrativo trabajando desde casa" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+                            <img src="images/de-cerca-las-personas-que-trabajan-desde-casa.jpg" alt="Persona en soporte administrativo trabajando desde casa" class="w-full h-56 object-cover" decoding="async">
                         </picture>
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Equipos Comerciales y de Soporte</h3>
@@ -205,7 +212,7 @@
                     <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col service-card-enhanced animate-on-scroll animation-delay-400">
                         <picture>
                             <source srcset="images/hombre-sonriente-de-tiro-medio-con-casco.webp" type="image/webp">
-                            <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" alt="Trabajador industrial productivo" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+                            <img src="images/hombre-sonriente-de-tiro-medio-con-casco.jpg" alt="Trabajador industrial productivo" class="w-full h-56 object-cover" decoding="async">
                         </picture>
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-cinzel font-semibold text-gray-800 mb-3 card-title">Cobertura y Productividad</h3>
@@ -415,7 +422,7 @@
                         <div class="pt-6">
                             <picture>
                                 <source srcset="images/Logo.webp" type="image/webp">
-                                <img src="images/Logo.png" alt="Controllers RD Logo" class="h-24 w-auto opacity-80" loading="lazy">
+                                <img src="images/Logo.png" alt="Controllers RD Logo" class="h-24 w-auto opacity-80">
                             </picture>
                         </div>
                     </div>
@@ -445,7 +452,7 @@
                 <div class="flex items-center mb-4 md:mb-0">
                     <picture>
                         <source srcset="images/Logo.webp" type="image/webp">
-                        <img src="images/Logo.png" alt="Controllers RD Logo" class="h-8 w-auto mr-3" loading="lazy">
+                        <img src="images/Logo.png" alt="Controllers RD Logo" class="h-8 w-auto mr-3">
                     </picture>
                     <div class="text-center md:text-left text-gray-500">
                         <p>&copy; 2025 Controllers, SRL. Todos los derechos reservados.</p>
@@ -468,23 +475,20 @@
     <!-- JavaScript -->
         <script src="js/emailjs-config.js"></script>
         <script src="js/main.js"></script>
-        <!-- Fallback silencioso para imágenes que fallen -->
-        <script>
-        (function(){
-            const tinyPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-            function applyFallback(img){
-                if(img.dataset.fallbackApplied) return; 
-                img.dataset.fallbackApplied = '1';
-                img.src = tinyPlaceholder;
-                img.classList.add('opacity-60');
-                if(!img.alt) img.alt = 'Imagen';
-            }
-            window.addEventListener('DOMContentLoaded',()=>{
-                document.querySelectorAll('img').forEach(img=>{
-                    img.addEventListener('error',()=>applyFallback(img));
+            <!-- Precarga forzada y fallback totalmente silencioso -->
+            <script>
+            (function(){
+                const tiny='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+                function silentFallback(img){ if(img.dataset.fallbackApplied) return; img.dataset.fallbackApplied='1'; img.src=tiny; }
+                function eagerLoad(){
+                    // Forzar evaluación de todas las fuentes <picture> para asegurar decodificación temprana
+                    document.querySelectorAll('picture source').forEach(srcEl=>{ const img = srcEl.parentElement.querySelector('img'); if(img && !img.complete){ const test=new Image(); test.src=srcEl.getAttribute('srcset'); }});
+                }
+                window.addEventListener('DOMContentLoaded',()=>{
+                    document.querySelectorAll('img').forEach(img=>{ img.addEventListener('error',()=>silentFallback(img)); });
+                    eagerLoad();
                 });
-            });
-        })();
-        </script>
+            })();
+            </script>
 </body>
 </html>
