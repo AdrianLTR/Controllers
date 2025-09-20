@@ -1,5 +1,9 @@
 ---
 // About.astro - Sección Sobre Nosotros
+import InterviewImage from '../assets/images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg';
+import InterviewWebp from '../assets/images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.webp';
+import ThinkingImage from '../assets/images/gente-trabajo-estetoscopio-pensativo.jpg';
+import ThinkingWebp from '../assets/images/gente-trabajo-estetoscopio-pensativo.webp';
 ---
 
 <section id="sobre-nosotros" class="py-24 bg-white">
@@ -22,12 +26,12 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center animate-on-scroll animation-delay-200">
                 <picture>
-                    <source srcset="/images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.webp" type="image/webp">
-                    <img src="/images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.jpg" alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced" decoding="async">
+                    <source srcset={InterviewWebp.src} type="image/webp">
+                    <img src={InterviewImage.src} alt="Entrevista de trabajo para selección de personal" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced" decoding="async">
                 </picture>
                 <picture>
-                    <source srcset="/images/gente-trabajo-estetoscopio-pensativo.webp" type="image/webp">
-                    <img src="/images/gente-trabajo-estetoscopio-pensativo.jpg" alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0" decoding="async">
+                    <source srcset={ThinkingWebp.src} type="image/webp">
+                    <img src={ThinkingImage.src} alt="Profesional cualificado y pensativo" class="rounded-xl shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 service-card-enhanced sm:mt-0" decoding="async">
                 </picture>
             </div>
         </div>

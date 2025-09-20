@@ -1,5 +1,7 @@
 ---
 // Header.astro - Navegación principal
+import LogoWebp from '../assets/images/Logo.webp';
+import LogoPng from '../assets/images/Logo.png';
 ---
 
 <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -8,8 +10,8 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <picture>
-                    <source srcset="/images/Logo.webp" type="image/webp">
-                    <img src="/images/Logo.png" alt="Controllers RD Logo" class="h-12 object-contain">
+                    <source srcset={LogoWebp.src} type="image/webp">
+                    <img src={LogoPng.src} alt="Controllers RD Logo" class="h-12 object-contain">
                 </picture>
                 <span class="ml-3 text-xl font-cinzel font-bold text-gray-800">Controllers RD</span>
             </div>
