@@ -1,0 +1,90 @@
+---
+// Footer.astro - Pie de página
+---
+
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Logo y descripción -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <picture>
+                        <source srcset="/images/Logo.webp" type="image/webp">
+                        <img src="/images/Logo.png" alt="Controllers RD Logo" class="h-10 object-contain">
+                    </picture>
+                    <span class="ml-3 text-xl font-cinzel font-bold">Controllers RD</span>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Tu socio estratégico en soluciones de personal temporal y contratación especializada.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://wa.me/18495170202" target="_blank" class="text-gray-400 hover:text-green-400 transition-colors">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="mailto:servicios@controllersrd.com" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="tel:+18495170202" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fas fa-phone text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Enlaces rápidos -->
+            <div>
+                <h3 class="text-lg font-cinzel font-semibold mb-4">Enlaces Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                    <li><a href="#sobre-nosotros" class="text-gray-400 hover:text-white transition-colors">Sobre Nosotros</a></li>
+                    <li><a href="#servicios" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+                    <li><a href="#valores" class="text-gray-400 hover:text-white transition-colors">Valores</a></li>
+                    <li><a href="#contacto" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <!-- Información de contacto -->
+            <div>
+                <h3 class="text-lg font-cinzel font-semibold mb-4">Contacto</h3>
+                <div class="space-y-2 text-gray-400">
+                    <p><i class="fas fa-envelope mr-2"></i>servicios@controllersrd.com</p>
+                    <p><i class="fas fa-phone mr-2"></i>(849) 517-0202</p>
+                    <p><i class="fab fa-whatsapp mr-2"></i>WhatsApp: +1 (849) 517-0202</p>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>República Dominicana</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+            <p class="text-gray-400">
+                &copy; {new Date().getFullYear()} Controllers RD. Todos los derechos reservados.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+  // Scroll suave para los enlaces del footer
+  document.addEventListener('DOMContentLoaded', () => {
+    const footerLinks = document.querySelectorAll('footer a[href^="#"]');
+    
+    footerLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href) {
+          const target = document.querySelector(href) as HTMLElement;
+          if (target) {
+            const headerHeight = document.getElementById('header')?.offsetHeight || 0;
+            const targetPosition = target.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  });
+</script>

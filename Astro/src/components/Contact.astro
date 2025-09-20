@@ -1,0 +1,198 @@
+---
+// Contact.astro - Sección de Contacto
+---
+
+<section id="contacto" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-gray-900">Hablemos</h2>
+            <p class="text-lg text-gray-600 mt-4">Estamos aquí para ayudarte a encontrar las mejores soluciones de personal.</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+            <!-- Contact Information -->
+            <div class="animate-on-scroll">
+                <h3 class="text-2xl font-cinzel font-bold text-gray-900">Información de Contacto</h3>
+                <p class="text-gray-600 mt-4 mb-8">Ponte en contacto con nosotros a través de cualquiera de estos medios.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Email</h4>
+                            <p class="text-gray-600">servicios@controllersrd.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">WhatsApp</h4>
+                            <p class="text-gray-600">+1 (849) 517-0202</p>
+                            <a href="https://wa.me/18495170202" target="_blank" class="text-green-600 hover:text-green-700 font-medium">Enviar mensaje</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-phone text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Teléfono</h4>
+                            <p class="text-gray-600">(849) 517-0202</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="animate-on-scroll">
+                <form id="contact-form" class="space-y-4">
+                    <input type="text" name="from_name" placeholder="Nombre *" required class="form-input">
+                    <input type="email" name="from_email" placeholder="Email *" required class="form-input">
+                    <input type="text" name="company" placeholder="Empresa" class="form-input">
+                    <input type="tel" name="phone" placeholder="Teléfono" class="form-input">
+                    <textarea name="message" placeholder="Mensaje *" required rows="6" class="form-input resize-none"></textarea>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 btn-primary">
+                        <span id="button-text">Enviar Mensaje</span>
+                        <span id="button-loading" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>Enviando...
+                        </span>
+                    </button>
+                </form>
+                
+                <!-- Messages -->
+                <div id="form-messages" class="mt-4 text-center hidden">
+                    <div id="success-message" class="text-green-600 font-medium hidden">
+                        <i class="fas fa-check-circle mr-2"></i>¡Mensaje enviado exitosamente! Te contactaremos pronto.
+                    </div>
+                    <div id="error-message" class="text-red-600 font-medium hidden">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>Error al enviar el mensaje. Por favor, inténtalo de nuevo.
+                    </div>
+                    <div id="dev-message" class="text-amber-600 font-medium hidden">
+                        <i class="fas fa-info-circle mr-2"></i>Modo desarrollo: EmailJS no configurado. Contacta directamente por WhatsApp o email.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+  // Manejo del formulario de contacto
+  class ContactForm {
+    private form: HTMLFormElement | null = null;
+    private buttonText: HTMLElement | null = null;
+    private buttonLoading: HTMLElement | null = null;
+    private messagesContainer: HTMLElement | null = null;
+    private successMessage: HTMLElement | null = null;
+    private errorMessage: HTMLElement | null = null;
+    private devMessage: HTMLElement | null = null;
+
+    constructor() {
+      this.init();
+    }
+
+    private init(): void {
+      this.form = document.getElementById('contact-form') as HTMLFormElement;
+      this.buttonText = document.getElementById('button-text');
+      this.buttonLoading = document.getElementById('button-loading');
+      this.messagesContainer = document.getElementById('form-messages');
+      this.successMessage = document.getElementById('success-message');
+      this.errorMessage = document.getElementById('error-message');
+      this.devMessage = document.getElementById('dev-message');
+
+      if (this.form) {
+        this.form.addEventListener('submit', this.handleSubmit.bind(this));
+      }
+    }
+
+    private async handleSubmit(e: Event): Promise<void> {
+      e.preventDefault();
+      
+      this.showLoading();
+      this.hideMessages();
+
+      try {
+        // Check if EmailJS is configured
+        const emailjsConfig = (window as any).EMAILJS_CONFIG;
+        
+        if (!emailjsConfig || emailjsConfig.isDevelopment || !emailjsConfig.publicKey) {
+          this.showDevMessage();
+          return;
+        }
+
+        // Send email using EmailJS
+        const formData = new FormData(this.form!);
+        const templateParams = {
+          from_name: formData.get('from_name'),
+          from_email: formData.get('from_email'),
+          company: formData.get('company'),
+          phone: formData.get('phone'),
+          message: formData.get('message'),
+          to_email: emailjsConfig.toEmail
+        };
+
+        const result = await (window as any).emailjs.send(
+          emailjsConfig.serviceID,
+          emailjsConfig.templateID,
+          templateParams
+        );
+
+        if (result.status === 200) {
+          this.showSuccess();
+          this.form!.reset();
+        } else {
+          this.showError();
+        }
+      } catch (error) {
+        console.error('Error sending email:', error);
+        this.showError();
+      } finally {
+        this.hideLoading();
+      }
+    }
+
+    private showLoading(): void {
+      this.buttonText?.classList.add('hidden');
+      this.buttonLoading?.classList.remove('hidden');
+    }
+
+    private hideLoading(): void {
+      this.buttonText?.classList.remove('hidden');
+      this.buttonLoading?.classList.add('hidden');
+    }
+
+    private hideMessages(): void {
+      this.messagesContainer?.classList.add('hidden');
+      this.successMessage?.classList.add('hidden');
+      this.errorMessage?.classList.add('hidden');
+      this.devMessage?.classList.add('hidden');
+    }
+
+    private showSuccess(): void {
+      this.messagesContainer?.classList.remove('hidden');
+      this.successMessage?.classList.remove('hidden');
+    }
+
+    private showError(): void {
+      this.messagesContainer?.classList.remove('hidden');
+      this.errorMessage?.classList.remove('hidden');
+    }
+
+    private showDevMessage(): void {
+      this.messagesContainer?.classList.remove('hidden');
+      this.devMessage?.classList.remove('hidden');
+    }
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    new ContactForm();
+  });
+</script>

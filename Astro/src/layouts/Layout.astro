@@ -1,0 +1,289 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Tu socio estratégico en soluciones de personal temporal y contratación especializada." } = Astro.props;
+
+// Importar estilos
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    
+    <!-- Preload de imágenes críticas -->
+    <link rel="preload" as="image" href="/images/Logo.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/entrevista-de-trabajo-y-seleccion-de-candidatos-para-el-empleo.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/gente-trabajo-estetoscopio-pensativo.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/hombre-sonriente-de-tiro-medio-con-casco.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/de-cerca-las-personas-que-trabajan-desde-casa.webp" type="image/webp">
+    
+    <!-- Google Fonts: Poppins, Inter & Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Controllers RD">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/images/Logo.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content="/images/Logo.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/Logo.png">
+  </head>
+  <body class="font-sans antialiased">
+    <slot />
+    
+    <!-- Scripts client-side -->
+    <script>
+      // Configuración del sitio
+      window.SITE_CONFIG = {
+        isDevelopment: window.location.protocol === 'file:' || window.location.hostname === 'localhost',
+        animations: {
+          respectReducedMotion: true,
+          enableScrollAnimations: true
+        }
+      };
+      
+      // Animaciones en scroll
+      function initScrollAnimations() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        
+        if (!window.SITE_CONFIG.animations.enableScrollAnimations) return;
+        
+        if (window.SITE_CONFIG.animations.respectReducedMotion && 
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          elements.forEach(el => el.classList.add('animate'));
+          return;
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+        
+        elements.forEach(el => observer.observe(el));
+      }
+      
+      // Inicializar cuando el DOM esté listo
+      document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --clr-primary: #3b82f6;
+    --clr-primary-dark: #1d4ed8;
+    --clr-gray-900: #111827;
+    --clr-gray-800: #1f2937;
+    --clr-gray-700: #374151;
+    --clr-gray-300: #d1d5db;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    --font-heading: 'Cinzel', serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  .text-justify {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+
+  .font-cinzel {
+    font-family: var(--font-heading);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animaciones */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero video styles */
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.88;
+    z-index: 1;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(230, 240, 255, 0.85) 100%);
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+  }
+
+  .video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Service cards */
+  .service-card-enhanced {
+    transition: all 0.3s ease;
+  }
+
+  .service-card-enhanced:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Navigation */
+  #header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-dark));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Form styles */
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: white;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  }
+</style>
