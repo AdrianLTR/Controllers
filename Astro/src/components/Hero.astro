@@ -3,6 +3,9 @@
 import LogoWebp from '../assets/images/Logo.webp';
 import LogoPng from '../assets/images/Logo.png';
 import SafetyImage from '../assets/images/personas-en-equipos-de-seguridad-en-su-lugar-de-trabajo.jpg';
+
+// Obtener la ruta base para el video
+const videoPath = `${import.meta.env.BASE_URL}videos/Oficina.mp4`;
 ---
 
 <section id="inicio" class="hero-section min-h-screen flex items-center relative overflow-hidden">
@@ -16,7 +19,7 @@ import SafetyImage from '../assets/images/personas-en-equipos-de-seguridad-en-su
         playsinline 
         preload="metadata"
     >
-        <source id="hero-video-source" data-src="/videos/Oficina.mp4" type="video/mp4">
+        <source id="hero-video-source" data-src={videoPath} type="video/mp4">
         <!-- Fallback image if video fails -->
         <img src={SafetyImage.src} alt="Personas trabajando con equipos de seguridad" class="w-full h-full object-cover">
     </video>
